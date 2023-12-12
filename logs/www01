@@ -1,0 +1,9 @@
+LLL0
+LLL1
+ProgPath:media/(null):
+Opening awsjson file :media/(null):
+Error opening awsjson file media/(null): No such file or directory
+1. Creating gcs's tokens
+2. Creating aws's tokens
+  2.0 AWS_cmd=../..//dealthing/mytcstuff/bin/tokens_AWS2 -d 510 -2 media -3 mysql -4 dealthing -5 root -6 imaof333
+ 2.1 Created aws's tokens

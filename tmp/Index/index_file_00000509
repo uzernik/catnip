@@ -1,0 +1,402 @@
+327	0	0	70	0	2	Lease	-	Document	0	1	0	-46	0	1	0	0	0	1	0	0	0
+-1	3	2	11	2	10	-	3	, DATE: 30 A	0	0	0	71	2	1	4	3	2	0	0	0	0
+325	1	1	61	10	3	-	1.	 Interpretation 2.	0	0	0	526	1	2	10	2	6	0	0	0	0
+325	4	4	61	11	3	-	4.	 Rents Payable	0	0	0	621	4	2	2	0	2	0	0	0	0
+325	5	5	61	12	3	-	5.	 Insurance	0	0	0	655	5	2	1	0	1	0	0	0	0
+325	6	6	61	13	3	-	6.	 Costs and Outgoings	0	0	0	685	6	2	3	0	2	0	0	0	0
+325	7	7	61	14	3	-	7.	 Repairs, Maintenance and Alterations	0	0	0	725	7	2	4	0	3	0	0	0	0
+325	8	8	61	15	3	-	8.	 Use of the Premises	0	0	0	782	8	2	4	0	2	0	0	0	0
+325	9	9	61	16	3	-	9.	 Assignment, Underletting and Charging	0	0	0	822	9	2	4	0	3	0	0	0	0
+325	10	10	61	17	3	-	10.	 Legislation and Planning	0	0	0	880	10	2	3	0	2	0	0	0	0
+325	11	11	61	18	3	-	11.	 Environmental Law	0	0	0	926	11	2	2	0	2	0	0	0	0
+325	12	12	61	19	3	-	12.	 End of the Term	0	0	0	965	12	2	4	0	2	0	0	0	0
+325	13	13	61	20	3	-	13.	 Guarantors	0	0	0	1002	13	2	1	0	1	0	0	0	0
+325	14	14	61	21	3	-	14.	 Services	0	0	0	1034	14	2	1	0	1	0	0	0	0
+325	15	15	61	22	3	-	15.	 Service Charge	0	0	0	1064	15	2	2	0	2	0	0	0	0
+325	16	16	61	23	3	-	16.	 Co-operation 17.	0	0	0	1100	16	2	6	1	3	0	0	0	0
+325	18	18	61	24	3	-	18.	 Enforcement	0	0	0	1164	18	2	1	0	1	0	0	0	0
+325	19	19	61	25	3	-	19.	 Execution Schedule 1 Additional Service Costs 1 5 7 10 11 14 15 17 18 20 22 23 2	0	0	0	1197	19	2	26	21	5	0	0	0	0
+309	1	3	21	36	4	_	(1)	 ESSEX COUNTY COUNCIL o	0	0	0	2746	3	4	14	5	10	0	0	0	0
+309	2	5	21	37	4	_	(2)	 MINESOFT LTD (	0	0	0	2858	5	4	407	18	73	0	0	0	0
+-1	2	0	27	38	10	_	(b)	 in respect of which the landlord and the tenant have taken all steps required un	0	1	0	5443	0	5	69	3	13	0	0	0	0
+313	1	28	27	44	3	_	(a)	 the non-availability of insurance against one or more of the Insured Risks throu	0	1	0	7781	28	5	22	0	2	0	0	0	0
+313	2	30	27	45	3	_	(b)	 any conditions, excess, exclusion and limitation clauses which may be imposed; a	0	1	0	7948	30	5	12	0	0	0	0	0	0
+313	3	31	27	46	3	_	(c)	 any exclusions for damage caused by acts of terrorism;	0	1	0	8052	31	5	9	0	0	0	0	0	0
+312	1	34	27	48	3	_	(a)	 all alterations, improvements and additions made to those premises during the Te	0	1	0	8296	34	5	12	0	1	0	0	0	0
+312	2	35	27	49	3	_	(b)	 Landlord's fixtures and conduits serving only those premises at any time during 	0	1	0	8401	35	5	15	0	2	0	0	0	0
+312	3	36	27	50	3	_	(c)	 suspended ceilings and raised floor systems;	0	1	0	8512	36	5	6	0	0	0	0	0	0
+312	4	37	27	51	3	_	(d)	 all internal surfaces of the walls, ceilings and floor slabs;	0	1	0	8578	37	5	10	0	0	0	0	0	0
+312	5	38	27	52	3	_	(e)	 the whole of any non-structural or non-loadbearing walls and columns wholly with	0	1	0	8661	38	5	16	0	0	0	0	0	0
+-1	0	11	27	56	10	-	C	 Crown copyright 1981 Scale:	0	0	0	9000	11	7	12	9	8	0	0	0	0
+312	6	0	27	64	3	_	(f)	 the inner half, severed vertically, of any non-structural or non-load bearing wa	0	1	0	9461	0	8	27	0	1	0	0	0	0
+312	7	2	27	65	3	_	(g)	 all doors and the glass within them;	0	1	0	9642	2	8	7	0	0	0	0	0	0
+312	8	4	27	67	3	_	(h)	 the foundation, structure, loadbearing walls, beams and columns, ceiling and flo	0	1	0	9728	4	8	18	0	1	0	0	0	0
+312	9	6	27	68	3	_	(i)	 the external windows window frames and door frames;	0	1	0	9868	6	8	8	0	0	0	0	0	0
+312	10	7	27	69	3	_	(j)	 any landlord's fixtures and conduits serving both those premises and other parts	0	1	0	9941	7	8	17	0	1	0	0	0	0
+312	11	9	27	70	3	_	(k)	 the airspace between the ceiling slabs and the suspended ceilings and the floor 	0	1	0	10064	9	8	18	0	0	0	0	0	0
+37	2	26	12	75	3	-	1.2	 Construction	0	0	0	11256	26	8	1	0	1	0	0	0	0
+147	1	0	13	77	4	-	1.2.1	 unless otherwise indicated, references to clauses and Schedules are to clauses o	0	1	0	11322	28	8	17	0	3	0	0	0	0
+147	2	0	13	78	4	-	1.2.2	 except in relation to the Town and Country Planning (Use Classes) Order 1987, re	0	1	0	11456	30	8	56	1	6	0	0	0	0
+147	3	0	13	79	4	-	1.2.3	 references to the Landlord, the Tenant or any guarantor include their respective	0	1	0	11855	35	8	25	0	2	0	0	0	0
+147	4	0	13	80	4	-	1.2.4	 the Landlord's obligations in this Lease do not bind the Landlord named in the P	0	1	0	12052	37	8	33	0	5	0	0	0	0
+147	5	0	13	82	4	-	1.2.5	 references to the Premises, the Building, the Common Parts and the Communal Area	0	1	0	12375	2	9	28	0	6	0	0	0	0
+147	6	0	13	83	4	-	1.2.6	 references to adjoining premises include any premises adjoining or near to the B	0	1	0	12561	4	9	36	0	4	0	0	0	0
+147	7	0	13	84	4	-	1.2.7	 references to this Lease include any deed or document which is supplemental to, 	0	1	0	12813	7	9	24	0	2	0	0	0	0
+147	8	0	13	85	4	-	1.2.8	 references to the end of the Term include the determination of the Term before t	0	1	0	12972	9	9	19	0	3	0	0	0	0
+147	9	0	13	86	4	-	1.2.9	 "including" means "including, without limitation";	0	1	0	13095	11	9	5	0	0	0	0	0	0
+147	10	0	13	87	4	-	1.2.10	 "indemnify" means to indemnify against all actions, claims, demands and proceedi	0	1	0	13169	12	9	29	0	2	0	0	0	0
+147	11	0	13	88	4	-	1.2.11	 references to the Tenant include, and the Tenant's covenants bind, any undertena	0	1	0	13395	15	9	48	0	5	0	0	0	0
+147	12	0	13	89	4	-	1.2.12	 references to the consent or approval of the Landlord include references to the 	0	1	0	13721	19	9	43	0	2	0	0	0	0
+147	13	0	13	90	4	-	1.2.13	 any covenant by the Tenant not to do any act or thing includes a covenant not to	0	1	0	14017	23	9	27	0	1	0	0	0	0
+147	14	0	13	91	4	-	1.2.14	 where the consent of the Landlord is required for any assignment, underletting, 	0	1	0	14170	25	9	53	0	2	0	0	0	0
+147	15	0	13	92	4	-	1.2.15	 where two or more people form a party to this Lease, the obligations they undert	0	1	0	14513	29	9	29	0	1	0	0	0	0
+147	16	0	13	93	4	-	1.2.16	 if any provision is held to be illegal, invalid or unenforceable, the legality, 	0	1	0	14704	31	9	26	0	1	0	0	0	0
+37	3	33	12	94	3	-	1.3	 Particulars	0	0	0	14888	33	9	1	0	1	0	0	0	0
+37	4	36	12	96	3	-	1.4	 Contracts (Rights of Third Parties) Act 1999	0	0	0	15081	36	9	7	1	5	0	0	0	0
+37	5	0	12	98	3	-	1.5	 Landlord and Tenant (Covenants) Act 1995	0	0	0	15354	0	10	6	1	4	0	0	0	0
+0	2	3	11	101	3	-	2.	 LETTING, TERM AND TERMINATION	0	0	0	15561	3	10	4	4	4	0	0	0	0
+30	1	4	12	102	4	-	2.1	 Creation of the Term	0	0	0	15612	4	10	4	0	2	0	0	0	0
+30	2	6	12	104	4	-	2.2	 Quiet enjoyment The Tenant may quietly enjoy the Premises throughout the Term wi	0	0	0	15752	6	10	29	0	7	0	0	0	0
+30	3	9	12	105	4	-	2.3	 Right of re-entry to end this Lease	0	0	0	15957	9	10	8	0	2	0	0	0	0
+169	1	0	13	107	5	-	2.3.1	 the whole or any part of the Rents or any other sums due under this Lease remain	0	1	0	16134	12	10	33	0	2	0	0	0	0
+169	2	0	13	108	5	-	2.3.2	 the Tenant breaches any of its obligations in this Lease;	0	1	0	16336	15	10	10	0	2	0	0	0	0
+169	3	0	13	109	5	-	2.3.3	 the Tenant or any guarantor who is an individual (or if more than one individual	0	1	0	16418	16	10	20	0	1	0	0	0	0
+298	1	0	14	110	6	-	2.3.3.1	 is unable to pay, or has no reasonable prospect of being able to pay, its debts 	0	1	0	16546	18	10	27	2	2	0	0	0	0
+298	2	0	14	111	6	-	2.3.3.2	 is the subject of an application for an interim order under the Insolvency Act 1	0	1	0	16714	20	10	59	2	4	0	0	0	0
+298	3	0	14	112	6	-	2.3.3.3	 requests or suffers the appointment of a Law of Property Act 1925, court appoint	0	1	0	17102	25	10	77	1	3	0	0	0	0
+298	4	0	14	113	6	-	2.3.3.4	 makes an application for a bankruptcy order or takes any step in connection with	0	1	0	17560	31	10	53	0	0	0	0	0	0
+298	5	0	14	114	6	-	2.3.3.5	 has any taking control of goods, execution, sequestration or other process levie	0	1	0	17887	35	10	27	0	0	0	0	0	0
+298	6	0	14	115	6	-	2.3.3.6	 is, or becomes, subject to, or takes or has taken against it or in relation to i	0	1	0	18082	38	10	43	0	1	0	0	0	0
+297	1	0	14	118	5	-	2.3.4.1	 is unable to pay, or has no reasonable prospect of being able to pay, its debts 	0	1	0	18767	6	11	46	4	2	0	0	0	0
+297	2	0	14	119	5	-	2.3.4.2	 resolves or its directors resolve to enter into, or it enters into, or it or its	0	1	0	19048	10	11	96	3	6	0	0	0	0
+297	3	0	14	120	5	-	2.3.4.3	 resolves, or its directors, or the holders of a qualifying floating charge (as d	0	1	0	19681	19	11	113	3	6	0	0	0	0
+297	4	0	14	121	5	-	2.3.4.4	 requests or suffers the appointment of a receiver under the Law of Property Act 	0	1	0	20334	27	11	80	1	3	0	0	0	0
+297	5	0	14	122	5	-	2.3.4.5	 resolves or its directors resolve to wind it up, whether as a voluntary liquidat	0	1	0	20827	33	11	81	3	4	0	0	0	0
+297	6	0	14	123	5	-	2.3.4.6	 is dissolved, or is removed from the Register of Companies, or ceases to exist, 	0	1	0	21309	39	11	28	0	4	0	0	0	0
+297	7	0	14	124	5	-	2.3.4.7	 has any taking control of goods, execution, sequestration or other process levie	0	1	0	21489	41	11	27	0	0	0	0	0	0
+297	8	0	14	125	5	-	2.3.4.8	 is, or becomes, subject to, or takes or has taken against it or in relation to i	0	1	0	21697	0	12	90	8	4	0	0	0	0
+30	4	7	12	126	4	-	2.4	 Contracting out	0	0	0	22225	7	12	2	0	1	0	0	0	0
+165	1	0	13	128	5	-	2.4.1	 the Landlord served on the Tenant a notice (the "Notice") dated 19 June 2018 in 	0	1	0	22503	11	12	44	4	14	0	0	0	0
+165	2	0	13	129	5	-	2.4.2	 the Tenant, or a person duly authorised by the Tenant, in relation to the Notice	0	1	0	22787	15	12	46	4	14	0	0	0	0
+165	3	0	13	130	5	-	2.4.3	 where the Declaration was made by a person other than the Tenant, the declarant 	0	1	0	23093	19	12	30	0	5	0	0	0	0
+165	4	0	13	131	5	-	2.4.4	 it was not contractually bound to enter into the tenancy created by this Lease.	0	1	0	23283	21	12	14	0	1	0	0	0	0
+30	5	22	12	132	4	-	2.5	 Effect of the Lease coming to an end	0	0	0	23387	22	12	8	0	2	0	0	0	0
+30	6	27	12	134	4	-	2.6	 Exercise of rights of entry The Landlord agrees that in the exercise of any righ	0	0	0	23798	27	12	54	0	7	0	0	0	0
+0	3	31	11	135	3	-	3.	 RIGHTS AND RESERVATIONS	0	0	0	24122	31	12	3	3	3	0	0	0	0
+23	1	32	12	136	4	-	3.1	 Rights granted The Premises are let together with the following rights for the b	0	1	0	24167	32	12	42	0	6	0	0	0	0
+152	1	0	13	137	5	-	3.1.1	 to use the means of pedestrian access and circulation in the Communal Areas for 	0	1	0	24416	36	12	42	0	6	0	0	0	0
+152	2	0	13	138	5	-	3.1.2	 to use the toilets in the Communal Areas and the refuse disposal facilities, if 	0	1	0	24680	39	12	40	0	6	0	0	0	0
+152	3	0	13	139	5	-	3.1.3	 to use the conduits serving the Premises for the passage or transmission of util	0	1	0	24941	0	13	19	0	2	0	0	0	0
+152	4	0	13	140	5	-	3.1.4	 support and protection for the Premises from the remainder of the Building;	0	1	0	25077	2	13	12	0	2	0	0	0	0
+152	5	0	13	141	5	-	3.1.5	 to use the means of vehicular access and circulation in the Communal Areas for t	0	1	0	25177	3	13	37	3	3	0	0	0	0
+152	6	0	13	142	5	-	3.1.6	 to park two private motor vehicles in such parking spaces in any location within	0	1	0	25394	6	13	35	0	3	0	0	0	0
+152	7	0	13	143	5	-	3.1.7	 to display the name of the Tenant on any signboard provided by the Landlord in t	0	1	0	25611	9	13	56	0	5	0	0	0	0
+23	2	13	12	144	4	-	3.2	 Rights reserved	0	1	0	25936	13	13	2	0	1	0	0	0	0
+150	1	0	13	146	5	-	3.2.1	 to enter and remain upon so much as is necessary of the Premises on not less tha	0	1	0	26174	16	13	33	1	1	0	0	0	0
+296	1	0	14	147	6	-	3.2.1.1	 to ascertain whether the Tenant has complied with the Tenant's obligations under	0	1	0	26379	19	13	15	0	3	0	0	0	0
+296	2	0	14	148	6	-	3.2.1.2	 to provide the Services and any additional services included within the Addition	0	1	0	26498	21	13	14	0	4	0	0	0	0
+296	3	0	14	149	6	-	3.2.1.3	 to estimate the current value of the Premises or the Building for insurance or a	0	1	0	26622	23	13	17	0	2	0	0	0	0
+296	4	0	14	150	6	-	3.2.1.4	 to inspect and measure the Premises for any purpose connected with the review of	0	1	0	26747	25	13	23	0	4	0	0	0	0
+296	5	0	14	151	6	-	3.2.1.5	 to inspect the state of repair and condition of the Premises and prepare any sch	0	1	0	26903	27	13	19	0	1	0	0	0	0
+296	6	0	14	152	6	-	3.2.1.6	 to carry out any repairs, remove and make good any unauthorised alterations or c	0	1	0	27046	29	13	34	0	3	0	0	0	0
+296	7	0	14	153	6	-	3.2.1.7	 to take schedules or inventories of landlord's fixtures and other items to be re	0	1	0	27274	32	13	24	0	2	0	0	0	0
+296	8	0	14	154	6	-	3.2.1.8	 to show the Premises to prospective buyers of the Building or, during the last s	0	1	0	27427	34	13	25	0	4	0	0	0	0
+296	9	0	14	155	6	-	3.2.1.9	 to affix a for sale or, during the last six months of the Term, a letting notice	0	1	0	27596	36	13	39	0	3	0	0	0	0
+296	10	0	14	156	6	-	3.2.1.10	 to carry out or permit the repair, maintenance, decoration, replacement, renewal	0	1	0	27832	0	14	25	0	0	0	0	0	0
+296	11	0	14	157	6	-	3.2.1.11	 to enable it to comply with any legislation; and	0	1	0	28027	3	14	9	0	0	0	0	0	0
+296	12	0	14	158	6	-	3.2.1.12	 to enable the production of an EPC for the Premises or the Building whether or n	0	1	0	28103	4	14	27	2	5	0	0	0	0
+150	2	0	13	159	5	-	3.2.2	 the right to build on, alter, add to, redevelop or extend in any way any adjoini	0	1	0	28271	6	14	85	2	7	0	0	0	0
+150	3	0	13	160	5	-	3.2.3	 to erect scaffolding outside the Premises in connection with:	0	1	0	28768	12	14	9	0	1	0	0	0	0
+307	1	0	14	161	6	-	3.2.3.1	 the rights reserved in this clause 3.2 and any works to be carried out pursuant 	0	1	0	28854	13	14	19	2	0	0	0	0	0
+307	2	0	14	162	6	-	3.2.3.2	 the repair, maintenance, decoration, replacement, renewal and cleaning of the Bu	0	1	0	28977	15	14	75	0	10	0	0	0	0
+150	4	0	13	163	5	-	3.2.4	 to use all fire escape routes running through the Premises in case of fire or ot	0	1	0	29489	22	14	21	0	1	0	0	0	0
+150	5	0	13	164	5	-	3.2.5	 the right of access at all times over the Premises with or without workmen plant	0	1	0	29633	24	14	42	0	3	0	0	0	0
+150	6	0	13	165	5	-	3.2.6	 the right to connect to and use any conduits within or passing through the Premi	0	1	0	29903	27	14	28	0	1	0	0	0	0
+150	7	0	13	166	5	-	3.2.7	 the right to install new conduits within the Premises and connect to them for th	0	1	0	30092	29	14	33	0	2	0	0	0	0
+150	8	0	13	167	5	-	3.2.8	 support and protection from the Premises for the remainder of the Building.	0	1	0	30309	32	14	12	0	2	0	0	0	0
+23	3	33	12	168	4	-	3.3	 Exercise of rights reserved	0	1	0	30409	33	14	4	0	1	0	0	0	0
+23	4	36	12	170	4	-	3.4	 Title matters	0	1	0	30658	36	14	2	0	1	0	0	0	0
+23	5	0	12	172	4	-	3.5	 Title indemnity So far as they are still subsisting, capable of taking effect an	0	1	0	31071	0	15	43	2	5	0	0	0	0
+23	6	4	12	173	4	-	3.6	 Third party rights The letting is made subject to all rights of light and air an	0	1	0	31326	4	15	32	0	2	0	0	0	0
+23	7	7	12	174	4	-	3.7	 Exclusion of implied rights This Lease does not confer upon the Tenant any right	0	1	0	31527	7	15	52	3	11	0	0	0	0
+23	8	11	12	175	4	-	3.8	 Creation and loss of easements	0	1	0	31838	11	15	5	0	1	0	0	0	0
+168	1	0	13	177	5	-	3.8.1	 the creation of new rights or easements over the Building;	0	1	0	31990	13	15	10	0	1	0	0	0	0
+168	2	0	13	178	5	-	3.8.2	 the loss of any rights or easements benefiting the Building; or	0	1	0	32073	14	15	11	0	1	0	0	0	0
+168	3	0	13	179	5	-	3.8.3	 the Landlord being unable to claim rights benefiting the Building whether under 	0	1	0	32161	15	15	24	1	4	0	0	0	0
+23	9	17	12	180	4	-	3.9	 Compliance with Landlord's requirements The Tenant is to comply, at its own cost	0	1	0	32340	17	15	34	2	6	0	0	0	0
+23	10	20	12	181	4	-	3.10	 Preservation of rights to light and air	0	1	0	32558	20	15	7	0	1	0	0	0	0
+23	11	23	12	183	4	-	3.11	 Exclusion of liability The Landlord will not be liable to the Tenant for any fai	0	1	0	32828	23	15	34	0	8	0	0	0	0
+0	4	26	11	184	3	-	4.	 RENTS PAYABLE	0	0	0	33035	26	15	2	2	2	0	0	0	0
+33	1	27	12	185	4	-	4.1	 Obligation to pay rent	0	0	0	33070	27	15	4	0	1	0	0	0	0
+164	1	0	13	187	5	-	4.1.1	 the Principal Rent, from and including the Rent Commencement Date, to be paid by	0	1	0	33324	30	15	23	0	7	0	0	0	0
+164	2	0	13	188	5	-	4.1.2	 insurance rent in accordance with clause 5.5, from and including the date of the	0	1	0	33486	32	15	31	4	1	0	0	0	0
+164	3	0	13	189	5	-	4.1.3	 service charge rent in accordance with clause 15, from and including the date of	0	1	0	33663	34	15	31	2	1	0	0	0	0
+164	4	0	13	190	5	-	4.1.4	 any other sums reserved as rent under this Lease, to be paid on demand.	0	1	0	33847	36	15	14	0	1	0	0	0	0
+33	2	0	12	191	4	-	4.2	 Initial payment of rents	0	0	0	33956	0	16	4	0	1	0	0	0	0
+33	3	6	12	193	4	-	4.3	 Direct payment of Principal Rent	0	0	0	34411	6	16	5	0	3	0	0	0	0
+33	4	9	12	195	4	-	4.4	 Value added tax	0	0	0	34633	9	16	3	0	1	0	0	0	0
+33	5	14	12	197	4	-	4.5	 Interest on late payment If the Tenant does not pay the Principal Rent on the du	0	0	0	35047	14	16	92	1	11	0	0	0	0
+0	5	20	11	198	3	-	5.	 INSURANCE	0	0	0	35550	20	16	1	1	1	0	0	0	0
+20	1	21	12	199	4	-	5.1	 Landlord to insure	0	0	0	35581	21	16	3	0	1	0	0	0	0
+20	2	25	12	201	4	-	5.2	 Insured risks and level of cover	0	0	0	35905	25	16	6	0	1	0	0	0	0
+180	1	0	13	203	5	-	5.2.1	 be against the risks of fire, lightning, explosion, earthquake, landslip, subsid	0	1	0	36039	27	16	40	0	1	0	0	0	0
+180	2	0	13	204	5	-	5.2.2	 cover full rebuilding, site clearance, professional fees, value added tax and th	0	1	0	36350	31	16	34	0	2	0	0	0	0
+20	3	34	12	205	4	-	5.3	 Policy exclusions and excesses	0	0	0	36592	34	16	4	0	1	0	0	0	0
+179	1	0	13	207	5	-	5.3.1	 may, but will not be obliged to, obtain a waiver of any exclusion in respect of 	0	1	0	36677	36	16	18	0	0	0	0	0	0
+179	2	0	13	208	5	-	5.3.2	 will seek to ensure that any Policy Exclusions and excesses fall within normal c	0	1	0	36809	0	17	35	0	6	0	0	0	0
+20	4	3	12	209	4	-	5.4	 Provision of information	0	0	0	37048	3	17	3	0	1	0	0	0	0
+20	5	7	12	211	4	-	5.5	 Insurance rent	0	0	0	37313	7	17	2	0	1	0	0	0	0
+154	1	0	13	213	5	-	5.5.1	 a fair proportion, to be determined by the Landlord acting reasonably, of the am	0	1	0	37455	9	17	36	2	3	0	0	0	0
+154	2	0	13	214	5	-	5.5.2	 any additional premium or loading on the policy of insurance for the Building or	0	1	0	37685	12	17	52	0	5	0	0	0	0
+154	3	0	13	215	5	-	5.5.3	 a fair proportion, to be determined by the Landlord acting reasonably, of any ex	0	1	0	37986	16	17	34	0	3	0	0	0	0
+154	4	0	13	216	5	-	5.5.4	 the proper costs incurred by the Landlord in preparing and settling any insuranc	0	1	0	38212	19	17	45	0	4	0	0	0	0
+154	5	0	13	217	5	-	5.5.5	 a fair proportion, to be determined by the Landlord acting reasonably, of any am	0	1	0	38493	22	17	41	0	2	0	0	0	0
+154	6	0	13	218	5	-	5.5.6	 the costs of rebuilding the Building, site clearance, professional fees and valu	0	1	0	38761	25	17	43	0	2	0	0	0	0
+20	6	28	12	219	4	-	5.6	 Reinstatement	0	0	0	39033	28	17	1	0	1	0	0	0	0
+20	7	35	12	221	4	-	5.7	 Means of reinstatement	0	0	0	39602	35	17	3	0	1	0	0	0	0
+20	8	0	12	223	4	-	5.8	 Reinstatement of tenant's alterations	0	0	0	40090	0	18	5	0	1	0	0	0	0
+20	9	7	12	225	4	-	5.9	 Termination following damage to or destruction of the Premises	0	0	0	40681	7	18	9	0	2	0	0	0	0
+20	10	13	12	227	4	-	5.10	 Ownership of insurance proceeds if reinstatement impossible If it is not possibl	0	0	0	41174	13	18	98	8	14	0	0	0	0
+20	11	20	12	228	4	-	5.11	 Suspension of rent	0	0	0	41754	20	18	3	0	1	0	0	0	0
+20	12	27	12	230	4	-	5.12	 Tenant's insurance obligations The Tenant is:	0	0	0	42340	27	18	7	0	3	0	0	0	0
+153	1	0	13	231	5	-	5.12.1	 not to do anything which causes the Landlord's insurance to become void or voida	0	1	0	42409	29	18	27	0	1	0	0	0	0
+153	2	0	13	232	5	-	5.12.2	 to comply with the requirements and reasonable recommendations of the insurers o	0	1	0	42590	31	18	38	0	4	0	0	0	0
+153	3	0	13	233	5	-	5.12.3	 subject to clause 5.12.4, not to put in place insurance cover for the Premises a	0	1	0	42832	34	18	20	3	3	0	0	0	0
+153	4	0	13	234	5	-	5.12.4	 to insure any alterations and additions to the Premises against the Insured Risk	0	1	0	42963	36	18	30	0	4	0	0	0	0
+153	5	0	13	235	5	-	5.12.5	 to provide to the Landlord on reasonable request a written summary of the Tenant	0	1	0	43184	39	18	34	3	2	0	0	0	0
+153	6	0	13	236	5	-	5.12.6	 to notify the Landlord immediately in writing of any damage to or destruction of	0	1	0	43408	0	19	28	0	5	0	0	0	0
+20	13	2	12	237	4	-	5.13	 References to "fit for occupation and use"	0	0	0	43590	2	19	7	0	1	0	0	0	0
+0	6	6	11	239	3	-	6.	 COSTS AND OUTGOINGS	0	0	0	43875	6	19	3	3	3	0	0	0	0
+29	1	7	12	240	4	-	6.1	 Payment of outgoings The Tenant is to pay all outgoings of whatever nature in re	0	0	0	43916	7	19	111	0	14	0	0	0	0
+29	2	15	12	241	4	-	6.2	 Utilities provided by the Landlord	0	0	0	44578	15	19	5	0	2	0	0	0	0
+178	1	0	13	242	5	-	6.2.1	 Where the Landlord is responsible for the supply of energy to the Premises, the 	0	1	0	44635	16	19	34	0	6	0	0	0	0
+304	1	0	14	243	6	-	6.2.1.1	 the standing charges, meter rents and the costs of metered units and all other c	0	1	0	44850	19	19	28	0	1	0	0	0	0
+304	2	0	14	244	6	-	6.2.1.2	 the Landlord's reasonable and proper administrative costs in connection with the	0	1	0	45031	21	19	20	0	2	0	0	0	0
+304	3	0	14	245	6	-	6.2.1.3	 where the Landlord so requires, a fair and reasonable proportion, to be determin	0	1	0	45180	23	19	32	0	5	0	0	0	0
+178	2	0	13	246	5	-	6.2.2	 The Tenant will, on reasonable request from the Landlord, from time to time prov	0	1	0	45403	26	19	62	1	12	0	0	0	0
+29	3	31	12	247	4	-	6.3	 Common facilities	0	0	0	45813	31	19	2	0	1	0	0	0	0
+29	4	37	12	249	4	-	6.4	 Business rates indemnity The Tenant is to indemnify the Landlord against any per	0	0	0	46313	37	19	46	0	8	0	0	0	0
+29	5	0	12	250	4	-	6.5	 Landlord's costs	0	0	0	46613	0	20	3	0	1	0	0	0	0
+158	1	0	13	252	5	-	6.5.1	 the preparation and service of any notice and the taking of any proceedings by o	0	1	0	46957	5	20	52	4	8	0	0	0	0
+158	2	0	13	253	5	-	6.5.2	 any application made by the Tenant for the Landlord's consent for or approval of	0	1	0	47262	9	20	47	0	4	0	0	0	0
+158	3	0	13	254	5	-	6.5.3	 the preparation and service of any notice or schedule of dilapidations during or	0	1	0	47571	13	20	22	0	1	0	0	0	0
+158	4	0	13	255	5	-	6.5.4	 enforcing or making good any breach of the Tenant's obligations under this Lease	0	1	0	47721	15	20	45	0	5	0	0	0	0
+158	5	0	13	256	5	-	6.5.5	 the preparation and service by the Landlord of any notice under section 17 of th	0	1	0	47996	18	20	21	2	5	0	0	0	0
+29	6	20	12	257	4	-	6.6	 Tenant's indemnity	0	0	0	48144	20	20	3	0	1	0	0	0	0
+0	7	27	11	259	3	-	7.	 REPAIRS, MAINTENANCE AND ALTERATIONS	0	0	0	48728	27	20	4	4	4	0	0	0	0
+22	1	28	12	260	4	-	7.1	 Upkeep of the Premises	0	0	0	48786	28	20	4	0	2	0	0	0	0
+167	1	0	13	262	5	-	7.1.1	 keep the Premises and all tenant's and trade fixtures in good and substantial re	0	1	0	48867	30	20	44	0	4	0	0	0	0
+167	2	0	13	263	5	-	7.1.2	 renew and replace any landlord's fixtures and conduits forming part of the Premi	0	1	0	49152	33	20	40	0	1	0	0	0	0
+167	3	0	13	264	5	-	7.1.3	 redecorate the interior of the Premises within six months before the end of the 	0	1	0	49430	37	20	40	2	4	0	0	0	0
+22	2	0	12	265	4	-	7.2	 Upkeep following Insured Damage Clause 7.1 will not apply in respect of Insured 	0	0	0	49702	0	21	15	2	6	0	0	0	0
+22	3	2	12	266	4	-	7.3	 Compliance with notices to repair Following the service of any notice, whether b	0	0	0	49812	2	21	101	2	9	0	0	0	0
+22	4	9	12	267	4	-	7.4	 Landlord's right to enter and repair If the Tenant does not comply with clause 7	0	0	0	50403	9	21	83	3	10	0	0	0	0
+22	5	15	12	268	4	-	7.5	 Defective Premises Act 1972	0	0	0	50854	15	21	4	1	3	0	0	0	0
+22	6	20	12	270	4	-	7.6	 Restriction on alterations	0	0	0	51211	20	21	3	0	1	0	0	0	0
+22	7	26	12	272	4	-	7.7	 Non-structural alterations	0	0	0	51687	26	21	3	0	1	0	0	0	0
+22	8	29	12	274	4	-	7.8	 Standard of works	0	0	0	51943	29	21	3	0	1	0	0	0	0
+22	9	36	12	276	4	-	7.9	 Colour schemes on redecoration	0	0	0	52493	36	21	4	0	1	0	0	0	0
+22	10	0	12	278	4	-	7.10	 Removal of unauthorised alterations	0	0	0	52737	0	22	4	0	1	0	0	0	0
+22	11	7	12	280	4	-	7.11	 Reinstatement of alterations	0	0	0	53373	7	22	3	0	1	0	0	0	0
+0	8	13	11	282	3	-	8.	 USE OF THE PREMISES	0	0	0	53876	13	22	4	4	4	0	0	0	0
+32	1	14	12	283	4	-	8.1	 Authorised use	0	0	0	53917	14	22	2	0	1	0	0	0	0
+32	2	16	12	285	4	-	8.2	 Prohibited uses	0	0	0	54035	16	22	2	0	1	0	0	0	0
+151	1	0	13	287	5	-	8.2.1	 for any illegal or immoral purpose or any lewd, obscene or pornographic nature o	0	1	0	54171	18	22	28	0	1	0	0	0	0
+151	2	0	13	288	5	-	8.2.2	 as offices to which members of the public are admitted or for any public meeting	0	1	0	54357	20	22	15	0	0	0	0	0	0
+151	3	0	13	289	5	-	8.2.3	 for any auction, for the manufacture, sale or consumption of alcohol or for the 	0	1	0	54463	21	22	19	0	0	0	0	0	0
+151	4	0	13	290	5	-	8.2.4	 for the preparation or cooking of food other than for staff catering facilities 	0	1	0	54593	23	22	18	0	2	0	0	0	0
+151	5	0	13	291	5	-	8.2.5	 as a club, amusement arcade or for any betting transaction within the meaning of	0	1	0	54730	25	22	21	1	4	0	0	0	0
+151	6	0	13	292	5	-	8.2.6	 in a manner which creates a legal nuisance, damage or annoyance to the Landlord 	0	1	0	54878	27	22	27	0	2	0	0	0	0
+151	7	0	13	293	5	-	8.2.7	 for residential purposes or for any political or religious use.	0	1	0	55056	29	22	10	0	0	0	0	0	0
+32	3	30	12	294	4	-	8.3	 Restrictions on use	0	0	0	55144	30	22	3	0	1	0	0	0	0
+157	1	0	13	296	5	-	8.3.1	 overload the floors, ceilings or walls of or enclosing the Premises or the Commo	0	1	0	55226	32	22	33	0	7	0	0	0	0
+157	2	0	13	297	5	-	8.3.2	 allow any hazardous or contaminative materials to escape into the ground or any 	0	1	0	55443	35	22	23	0	1	0	0	0	0
+157	3	0	13	298	5	-	8.3.3	 place, affix or display any sign, advertisement, notice, placard, poster, flag, 	0	1	0	55606	37	22	30	0	2	0	0	0	0
+157	4	0	13	300	5	-	8.3.4	 use any machinery on the Premises which is audible outside the Premises or which	0	1	0	55947	2	23	24	0	3	0	0	0	0
+157	5	0	13	301	5	-	8.3.5	 affix any awning, mast, flagpole, aerial, satellite dish or any other fixture on	0	1	0	56123	4	23	25	0	2	0	0	0	0
+32	4	6	12	302	4	-	8.4	 Management regulations The Tenant is to comply with all proper and reasonable re	0	0	0	56291	6	23	38	2	7	0	0	0	0
+32	5	9	12	303	4	-	8.5	 Lawful use	0	0	0	56529	9	23	2	0	1	0	0	0	0
+0	9	12	11	305	3	-	9.	 ASSIGNMENT, UNDERLETTING AND CHARGING	0	0	0	56738	12	23	4	4	4	0	0	0	0
+25	1	13	12	306	4	-	9.1	 Restrictions on alienation	0	1	0	56797	13	23	3	0	1	0	0	0	0
+25	2	18	12	308	4	-	9.2	 Right to assign whole	0	1	0	57189	18	23	4	0	1	0	0	0	0
+25	3	21	12	310	4	-	9.3	 Pre-conditions to assignment For the purposes of section 19(1A) Landlord and Ten	0	1	0	57407	21	23	32	3	7	0	0	0	0
+163	1	0	13	311	5	-	9.3.1	 that the proposed assignee enters into a direct covenant with the Landlord to co	0	1	0	57627	24	23	30	0	3	0	0	0	0
+163	2	0	13	312	5	-	9.3.2	 that the Tenant gives to the Landlord an authorised guarantee agreement under se	0	1	0	57827	27	23	35	3	6	0	0	0	0
+163	3	0	13	313	5	-	9.3.3	 that any guarantor of the Tenant (not being a guarantor under an existing author	0	1	0	58069	30	23	42	4	3	0	0	0	0
+163	4	0	13	314	5	-	9.3.4	 if reasonably requested to do so by the Landlord, that the proposed assignee pro	0	1	0	58346	33	23	23	0	3	0	0	0	0
+306	1	0	14	315	6	-	9.3.4.1	 a guarantee of the proposed assignee's obligations on the terms of clause 13 by 	0	1	0	58507	35	23	38	1	3	0	0	0	0
+306	2	0	14	316	6	-	9.3.4.2	 a rent deposit, on terms reasonably required by the Landlord, of four months' Pr	0	1	0	58768	0	24	42	0	3	0	0	0	0
+25	4	3	12	317	4	-	9.4	 Circumstances where assignment is prohibited For the purposes of section 19(1A) 	0	1	0	59023	3	24	31	3	7	0	0	0	0
+156	1	0	13	318	5	-	9.4.1	 in the reasonable opinion of the Landlord, the proposed assignee is not of suffi	0	1	0	59235	6	24	29	0	3	0	0	0	0
+156	2	0	13	319	5	-	9.4.2	 the accounts of the proposed assignee or its guarantor have not been audited or,	0	1	0	59430	8	24	45	0	0	0	0	0	0
+156	3	0	13	320	5	-	9.4.3	 the proposed assignee or its guarantor is a company incorporated in or an indivi	0	1	0	59711	11	24	46	0	4	0	0	0	0
+300	1	0	14	321	6	-	9.4.3.1	 it carries on and maintains a business in the United Kingdom;	0	1	0	60010	15	24	11	0	2	0	0	0	0
+300	2	0	14	322	6	-	9.4.3.2	 it has a current bank account in the United Kingdom;	0	1	0	60098	16	24	10	0	2	0	0	0	0
+300	3	0	14	323	6	-	9.4.3.3	 it has, in the reasonable opinion of the Landlord, sufficient assets in the Unit	0	1	0	60177	17	24	26	0	4	0	0	0	0
+300	4	0	14	324	6	-	9.4.3.4	 it agrees to be bound by the jurisdiction of the English courts;	0	1	0	60353	19	24	12	0	1	0	0	0	0
+156	4	0	13	325	5	-	9.4.4	 the proposed assignee or its guarantor is a person who enjoys sovereign or state	0	1	0	60444	20	24	27	0	3	0	0	0	0
+156	5	0	13	326	5	-	9.4.5	 the proposed assignee is a group company of the Tenant within the meaning of sec	0	1	0	60632	22	24	23	2	4	0	0	0	0
+25	5	24	12	327	4	-	9.5	 Right to share occupation For so long only as any company remains a group compan	0	1	0	60781	24	24	78	4	11	0	0	0	0
+25	6	30	12	328	4	-	9.6	 Restrictions on charges The Tenant is not to create any charge, whether legal or	0	1	0	61233	30	24	41	0	8	0	0	0	0
+25	7	34	12	329	4	-	9.7	 Notification of dispositions Within one month after any assignment, charge or as	0	1	0	61496	34	24	69	1	6	0	0	0	0
+25	8	0	12	330	4	-	9.8	 Notification of rights of occupation In addition to the Tenant's obligations und	0	1	0	61946	0	25	104	2	14	0	0	0	0
+0	10	7	11	331	3	-	10.	 LEGISLATION AND PLANNING	0	0	0	62559	7	25	3	3	3	0	0	0	0
+24	1	8	12	332	4	-	10.1	 Compliance with legislation The Tenant is to comply with all statutes, other leg	0	1	0	62606	8	25	56	0	6	0	0	0	0
+24	2	13	12	333	4	-	10.2	 Fire precautions The Tenant is to comply with all requirements and reasonable re	0	1	0	62991	13	25	97	0	10	0	0	0	0
+24	3	21	12	334	4	-	10.3	 Notices	0	1	0	63640	21	25	1	0	1	0	0	0	0
+24	4	28	12	336	4	-	10.4	 Planning applications The Tenant is not to apply for planning permission under a	0	1	0	64207	28	25	58	0	5	0	0	0	0
+177	1	0	13	337	5	-	10.4.1	 the Landlord's consent is required under this Lease and that consent cannot be u	0	1	0	64607	33	25	19	0	2	0	0	0	0
+177	2	0	13	338	5	-	10.4.2	 the Landlord's consent is not required under this Lease.	0	1	0	64748	35	25	10	0	2	0	0	0	0
+24	5	36	12	339	4	-	10.5	 Completion of works	0	1	0	64830	36	25	3	0	1	0	0	0	0
+24	6	0	12	341	4	-	10.6	 Charges	0	1	0	65114	0	26	1	0	1	0	0	0	0
+176	1	0	13	342	5	-	10.6.1	 The Tenant must pay any charge imposed under legislation relating to town and co	0	1	0	65145	1	26	31	0	4	0	0	0	0
+176	2	0	13	343	5	-	10.6.2	 In relation to community infrastructure levy (or any similar or replacement char	0	1	0	65346	3	26	17	0	2	0	0	0	0
+303	1	0	14	344	6	-	10.6.2.1	 pay any community infrastructure levy (or any similar or replacement charge or l	0	1	0	65480	5	26	13	0	0	0	0	0	0
+303	2	0	14	345	6	-	10.6.2.2	 serve a notice assuming liability (and provide a copy of such notice to the Land	0	1	0	65593	7	26	44	0	1	0	0	0	0
+303	3	0	14	346	6	-	10.6.2.3	 indemnify the Landlord against all liabilities arising out of community infrastr	0	1	0	65868	11	26	36	0	2	0	0	0	0
+24	7	14	12	347	4	-	10.7	 The Construction (Design and Management) Regulations 2015	0	1	0	66114	14	26	7	1	5	0	0	0	0
+155	1	0	13	348	5	-	10.7.1	 In this clause 10.7 "Regulations" means the Construction (Design and Management)	0	1	0	66195	15	26	53	3	13	0	0	0	0
+155	2	0	13	349	5	-	10.7.2	 In respect of any works carried out by or on behalf of the Tenant or any underte	0	1	0	66542	19	26	44	0	5	0	0	0	0
+302	1	0	14	350	6	-	10.7.2.1	 the Tenant shall comply in all respects with the Regulations and procure that an	0	1	0	66808	22	26	31	0	5	0	0	0	0
+302	2	0	14	351	6	-	10.7.2.2	 if done so at the request of the Tenant, the Tenant shall pay the Landlord on de	0	1	0	67031	25	26	51	0	4	0	0	0	0
+302	3	0	14	352	6	-	10.7.2.3	 if and to the extent that the Landlord is a client for the purposes of the Regul	0	1	0	67345	29	26	103	0	9	0	0	0	0
+155	3	0	13	353	5	-	10.7.3	 The Tenant shall:	0	1	0	67936	37	26	3	0	2	0	0	0	0
+301	1	0	14	354	6	-	10.7.3.1	 compile, maintain and make the File available to the Landlord for inspection at 	0	1	0	67979	38	26	15	0	2	0	0	0	0
+301	2	0	14	355	6	-	10.7.3.2	 on request provide copies of the whole or any part of the File to the Landlord; 	0	1	0	68097	40	26	17	0	2	0	0	0	0
+301	3	0	14	356	6	-	10.7.3.3	 hand the File to the Landlord at the end of the Term.	0	1	0	68221	0	27	12	0	3	0	0	0	0
+155	4	0	13	357	5	-	10.7.4	 The Tenant shall obtain all copyright licences which are needed for the Tenant t	0	1	0	68302	1	27	21	2	3	0	0	0	0
+155	5	0	13	358	5	-	10.7.5	 The copyright licences obtained by the Tenant shall:	0	1	0	68448	3	27	8	0	2	0	0	0	0
+299	1	0	14	359	6	-	10.7.5.1	 be granted with full title guarantee;	0	0	0	68526	4	27	6	0	0	0	0	0	0
+299	2	0	14	360	6	-	10.7.5.2	 allow the Landlord and any superior landlord and anyone deriving title through o	0	0	0	68591	5	27	27	0	2	0	0	0	0
+299	3	0	14	361	6	-	10.7.5.3	 be obtained without cost to any such person; and	0	0	0	68765	7	27	9	0	0	0	0	0	0
+299	4	0	14	362	6	-	10.7.5.4	 be irrevocable.	0	0	0	68841	8	27	2	0	0	0	0	0	0
+24	8	9	12	363	4	-	10.8	 Planning agreements The Tenant is not to enter into any planning agreement with 	0	1	0	68884	9	27	30	0	4	0	0	0	0
+0	11	12	11	364	3	-	11.	 ENVIRONMENTAL LAW	0	0	0	69088	12	27	2	2	2	0	0	0	0
+28	1	13	12	365	4	-	11.1	 Compliance with Environmental Law	0	0	0	69128	13	27	4	0	3	0	0	0	0
+28	2	18	12	367	4	-	11.2	 Compliance with notices	0	0	0	69585	18	27	3	0	1	0	0	0	0
+175	1	0	13	369	5	-	11.2.1	 to supply the Landlord with copies of all notices, directions, reports or corres	0	1	0	69681	20	27	43	0	7	0	0	0	0
+175	2	0	13	370	5	-	11.2.2	 to take and complete promptly and diligently all actions or precautions required	0	1	0	69992	24	27	19	0	0	0	0	0	0
+28	3	26	12	371	4	-	11.3	 Prevention of contamination	0	0	0	70151	26	27	3	0	1	0	0	0	0
+28	4	30	12	373	4	-	11.4	 Provision of an EPC	0	0	0	70497	30	27	4	1	2	0	0	0	0
+28	5	33	12	375	4	-	11.5	 Obtaining an EPC for the Premises	0	0	0	70667	33	27	6	1	3	0	0	0	0
+162	1	0	13	376	5	-	11.5.1	 The Tenant is to notify the Landlord in writing before obtaining an EPC for the 	0	1	0	70724	34	27	16	1	5	0	0	0	0
+162	2	0	13	377	5	-	11.5.2	 If the Landlord holds a valid EPC for the Premises, the Landlord is to provide a	0	1	0	70839	36	27	35	2	8	0	0	0	0
+162	3	0	13	379	5	-	11.5.3	 The Tenant shall allow the Landlord and all others authorised by the Landlord to	0	1	0	71209	2	28	41	0	6	0	0	0	0
+305	1	0	14	380	6	-	11.5.3.1	 prepare an EPC in respect of the Premises; and	0	1	0	71476	5	28	9	1	2	0	0	0	0
+305	2	0	14	381	6	-	11.5.3.2	 comply with any duty imposed upon the Landlord under The Energy Performance of B	0	1	0	71550	6	28	19	1	8	0	0	0	0
+162	4	0	13	383	5	-	11.5.4	 The Tenant shall not obtain or commission an EPC in respect of the Premises unle	0	1	0	71879	10	28	71	5	21	0	0	0	0
+28	6	15	12	384	4	-	11.6	 Production of EPCs	0	0	0	72298	15	28	3	0	2	0	0	0	0
+0	12	19	11	386	3	-	12.	 END OF THE TERM	0	0	0	72566	19	28	4	4	4	0	0	0	0
+36	1	20	12	387	4	-	12.1	 Return of the Premises	0	0	0	72604	20	28	4	0	2	0	0	0	0
+36	2	24	12	389	4	-	12.2	 Tenant's goods left in the Premises	0	0	0	72930	24	28	7	0	2	0	0	0	0
+174	1	0	13	391	5	-	12.2.1	 the Landlord may sell that property as the agent of the Tenant and the Landlord 	0	1	0	73119	27	28	44	0	5	0	0	0	0
+174	2	0	13	392	5	-	12.2.2	 the Tenant is to indemnify the Landlord against any liability of the Landlord to	0	1	0	73394	30	28	36	0	4	0	0	0	0
+36	3	33	12	393	4	-	12.3	 Exclusion of right to compensation Subject to the provisions of any legislation 	0	0	0	73623	33	28	37	0	4	0	0	0	0
+36	4	36	12	394	4	-	12.4	 Return of the Lease	0	0	0	73871	36	28	4	0	2	0	0	0	0
+27	1	1	12	397	4	-	13.1	 Terms of the guarantee The terms of this clause 13 are to be incorporated into a	0	1	0	74251	1	29	26	1	4	0	0	0	0
+27	2	4	12	398	4	-	13.2	 Obligations of the guarantor The guarantor guarantees to the Landlord that the T	0	1	0	74413	4	29	48	1	12	0	0	0	0
+173	1	0	13	399	5	-	13.2.1	 is given by the guarantor as primary obligor; and	0	1	0	74721	8	29	9	0	0	0	0	0	0
+173	2	0	13	400	5	-	13.2.2	 includes an independent obligation both to comply with the tenant's covenants if	0	1	0	74796	9	29	24	0	1	0	0	0	0
+27	3	11	12	401	4	-	13.3	 Right to direct claim against the guarantor The guarantor agrees that the Landlo	0	1	0	74971	11	29	30	0	4	0	0	0	0
+27	4	14	12	402	4	-	13.4	 No right of set-off	0	1	0	75178	14	29	5	0	1	0	0	0	0
+27	5	17	12	404	4	-	13.5	 Continuation of the guarantee The obligations of the guarantor are not to be rel	0	1	0	75420	17	29	15	0	2	0	0	0	0
+148	1	0	13	405	5	-	13.5.1	 any delay or neglect by the Landlord in enforcing the tenant's covenants or any 	0	1	0	75533	19	29	23	0	2	0	0	0	0
+148	2	0	13	406	5	-	13.5.2	 any refusal by the Landlord to accept the payment of the Rents under this Lease 	0	1	0	75690	21	29	27	0	3	0	0	0	0
+148	3	0	13	407	5	-	13.5.3	 any variation of the terms of this Lease;	0	1	0	75857	23	29	8	0	1	0	0	0	0
+148	4	0	13	408	5	-	13.5.4	 the surrender of any part of the Premises;	0	1	0	75924	24	29	8	0	1	0	0	0	0
+148	5	0	13	409	5	-	13.5.5	 the disclaimer of this Lease by the Crown or by a liquidator or trustee in bankr	0	1	0	75992	25	29	19	0	3	0	0	0	0
+148	6	0	13	410	5	-	13.5.6	 the forfeiture of the Lease;	0	1	0	76118	27	29	5	0	1	0	0	0	0
+148	7	0	13	411	5	-	13.5.7	 the Tenant being struck off the register of companies or otherwise ceasing to ex	0	1	0	76172	28	29	22	0	1	0	0	0	0
+148	8	0	13	412	5	-	13.5.8	 any legal limitation, immunity, disability, incapacity or other circumstances re	0	1	0	76322	30	29	21	0	2	0	0	0	0
+148	9	0	13	413	5	-	13.5.9	 anything else which would have released the guarantor whether by the variation o	0	1	0	76490	32	29	24	0	0	0	0	0	0
+27	6	34	12	414	4	-	13.6	 New lease following disclaimer	0	1	0	76654	34	29	4	0	1	0	0	0	0
+0	14	4	11	418	3	-	14.	 SERVICES	0	0	0	77473	4	30	1	1	1	0	0	0	0
+35	1	5	12	419	4	-	14.1	 Provision of Services	0	0	0	77504	5	30	3	0	2	0	0	0	0
+161	1	0	13	421	5	-	14.1.1	 to maintain, clean and repair the Common Parts and landlord's fixtures and condu	0	1	0	77640	7	30	17	0	3	0	0	0	0
+161	2	0	13	422	5	-	14.1.2	 to use all reasonable endeavours to light the Communal Areas during the Service 	0	1	0	77771	9	30	23	0	5	0	0	0	0
+161	3	0	13	423	5	-	14.1.3	 to use all reasonable endeavours to provide a supply of hot and cold water and o	0	1	0	77936	11	30	39	0	5	0	0	0	0
+161	4	0	13	424	5	-	14.1.4	 to use all reasonable endeavours to provide heating and comfort cooling to the P	0	1	0	78187	14	30	27	0	6	0	0	0	0
+35	2	16	12	425	4	-	14.2	 Employment of agents and contractors	0	0	0	78382	16	30	5	0	1	0	0	0	0
+35	3	19	12	427	4	-	14.3	 Limitation of liability The Landlord will not be liable to the Tenant in respect	0	0	0	78608	19	30	78	0	7	0	0	0	0
+35	4	26	12	428	4	-	14.4	 Minimising interruptions to services	0	0	0	79140	26	30	4	0	1	0	0	0	0
+0	15	30	11	430	3	-	15.	 SERVICE CHARGE	0	0	0	79434	30	30	2	2	2	0	0	0	0
+21	1	31	12	431	4	-	15.1	 Service charge rent	0	0	0	79471	31	30	3	0	1	0	0	0	0
+21	2	34	12	433	4	-	15.2	 Advance payments The Tenant is to pay to the Landlord:	0	0	0	79633	34	30	10	0	4	0	0	0	0
+172	1	0	13	434	5	-	15.2.1	 by equal quarterly payments in advance on the Quarter Days the reasonable sum no	0	1	0	79711	36	30	31	2	4	0	0	0	0
+172	2	0	13	435	5	-	15.2.2	 any additional sum or sums on demand which the Landlord properly and reasonably 	0	1	0	79928	0	31	38	0	5	0	0	0	0
+21	3	3	12	436	4	-	15.3	 Service Charge Statement and balancing payment As soon as reasonably practicable	0	0	0	80180	3	31	73	0	17	0	0	0	0
+160	1	0	13	437	5	-	15.3.1	 the statement is to be signed by the Landlord, its surveyor, accountant or the L	0	1	0	80611	8	31	37	0	2	0	0	0	0
+160	2	0	13	438	5	-	15.3.2	 except where there is a manifest error, the statement will be conclusive as to t	0	1	0	80834	11	31	19	0	0	0	0	0	0
+160	3	0	13	439	5	-	15.3.3	 if any balance is due from the Tenant to the Landlord, the Tenant is to pay that	0	1	0	80971	13	31	32	0	7	0	0	0	0
+160	4	0	13	440	5	-	15.3.4	 if any balance is due from the Landlord to the Tenant, the balance is to be set 	0	1	0	81168	15	31	61	0	10	0	0	0	0
+21	4	19	12	441	4	-	15.4	 Changes to the Service Charge Year	0	0	0	81513	19	31	6	0	4	0	0	0	0
+21	5	23	12	443	4	-	15.5	 Permitted adjustments to the costs of Services	0	0	0	81806	23	31	7	0	2	0	0	0	0
+21	6	28	12	445	4	-	15.6	 Service charge management costs	0	0	0	82277	28	31	4	0	1	0	0	0	0
+21	7	32	12	447	4	-	15.7	 Exclusions from the Service Costs	0	0	0	82616	32	31	5	0	3	0	0	0	0
+159	1	0	13	449	5	-	15.7.1	 the costs of letting any unlet parts of the Building;	0	1	0	82744	34	31	10	0	1	0	0	0	0
+159	2	0	13	450	5	-	15.7.2	 the costs of making good any damage to or destruction of the Building following 	0	1	0	82823	35	31	16	0	3	0	0	0	0
+159	3	0	13	451	5	-	15.7.3	 any costs for which the Tenant or any other tenant or occupier of the Building a	0	1	0	82944	37	31	19	0	2	0	0	0	0
+159	4	0	13	452	5	-	15.7.4	 the costs of enforcing the obligations to pay rent.	0	1	0	83081	39	31	9	0	0	0	0	0	0
+21	8	0	12	453	4	-	15.8	 Right to vary the provision of Services	0	0	0	83171	0	32	7	0	2	0	0	0	0
+21	9	5	12	455	4	-	15.9	 Level of Service Costs	0	0	0	83573	5	32	4	0	3	0	0	0	0
+21	10	0	12	457	4	-	15.10	 Apportionment of service costs	0	0	0	83804	8	32	4	0	1	0	0	0	0
+171	1	0	13	459	5	-	15.10.1	 may allocate to the Tenant or to any other person the whole or any reasonable pr	0	1	0	84061	11	32	43	0	7	0	0	0	0
+171	2	0	13	460	5	-	15.10.2	 is not to increase the proportion payable by the Tenant by reason only that any 	0	1	0	84344	14	32	52	0	5	0	0	0	0
+21	11	0	12	461	4	-	15.11	 Sinking fund	0	0	0	84646	18	32	2	0	1	0	0	0	0
+21	12	0	12	463	4	-	15.12	 Carbon Costs	0	0	0	85171	24	32	2	0	2	0	0	0	0
+166	1	0	13	465	5	-	15.12.1	 the Landlord may require that the Carbon Costs payable in advance pursuant to cl	0	1	0	85285	26	32	33	3	4	0	0	0	0
+166	2	0	13	466	5	-	15.12.2	 the Landlord may, by written notice to the Tenant, substitute for the provisions	0	1	0	85489	29	32	66	4	13	0	0	0	0
+166	3	0	13	467	5	-	15.12.3	 the Landlord may if it wishes include within the Service Charge any Carbon Costs	0	1	0	85885	34	32	29	2	6	0	0	0	0
+0	16	36	11	468	3	-	16.	 CO-OPERATION	0	0	0	86068	36	32	2	2	2	0	0	0	0
+0	17	2	11	471	3	-	17.	 DETERMINATION OF DISPUTES	0	0	0	86595	2	33	3	3	3	0	0	0	0
+31	1	3	12	472	4	-	17.1	 Appointment of independent person Any person appointed under this Lease as an ex	0	1	0	86643	3	33	73	0	10	0	0	0	0
+31	2	9	12	473	4	-	17.2	 Provisions applying to experts Where any person acts as an independent expert:	0	1	0	87106	9	33	12	0	2	0	0	0	0
+149	1	0	13	474	5	-	17.2.1	 the Landlord and the Tenant may make written representations within two calendar	0	1	0	87208	11	33	26	0	2	0	0	0	0
+149	2	0	13	475	5	-	17.2.2	 the Landlord and the Tenant are to have a further calendar month to make written	0	1	0	87402	13	33	30	0	2	0	0	0	0
+149	3	0	13	476	5	-	17.2.3	 he is to be at liberty to call for such written evidence from the parties and to	0	1	0	87604	16	33	29	0	0	0	0	0	0
+149	4	0	13	477	5	-	17.2.4	 he is not to take oral representations from the Landlord or the Tenant without g	0	1	0	87783	18	33	32	0	2	0	0	0	0
+149	5	0	13	478	5	-	17.2.5	 he is to have regard to all representations and evidence before him when making 	0	1	0	87991	21	33	33	0	0	0	0	0	0
+149	6	0	13	479	5	-	17.2.6	 he is to use all reasonable endeavours to publish his decision within six months	0	1	0	88194	23	33	17	0	0	0	0	0	0
+149	7	0	13	480	5	-	17.2.7	 he is to act impartially and in good faith between the parties; and	0	1	0	88320	25	33	13	0	0	0	0	0	0
+149	8	0	13	481	5	-	17.2.8	 another expert may replace him if he dies, becomes unwilling or incapable of act	0	1	0	88413	26	33	38	0	0	0	0	0	0
+31	3	29	12	482	4	-	17.3	 Provisions applying to arbitrators	0	1	0	88655	29	33	4	0	1	0	0	0	0
+31	4	32	12	484	4	-	17.4	 Responsibility for costs	0	1	0	88897	32	33	3	0	1	0	0	0	0
+31	5	2	12	487	4	-	17.5	 Date of the determination or award	0	1	0	89873	2	34	6	0	1	0	0	0	0
+0	18	6	11	489	3	-	18.	 ENFORCEMENT	0	0	0	90234	6	34	1	1	1	0	0	0	0
+38	1	7	12	490	4	-	18.1	 Applicable law	0	0	0	90268	7	34	2	0	1	0	0	0	0
+38	2	9	12	492	4	-	18.2	 Service of notices	0	0	0	90404	9	34	3	0	1	0	0	0	0
+38	3	12	12	494	4	-	18.3	 Jurisdiction	0	0	0	90583	12	34	1	0	1	0	0	0	0
+-1	19	17	11	496	10	-	19.	 EXECUTION	0	0	0	90990	17	34	1	1	1	0	0	0	0
+0	19	20	11	498	3	-	19.	 TENANT'S OPTION TO DETERMINE	0	0	0	91154	20	34	5	5	5	0	0	0	0
+26	1	21	12	499	4	-	19.1	 Subject to the pre-conditions in clause 19.2 being satisfied on the relevant Ter	0	1	0	91205	21	34	85	5	13	0	0	0	0
+26	2	27	12	500	4	-	19.2	 The pre-conditions are that:	0	1	0	91722	27	34	5	0	1	0	0	0	0
+170	1	0	13	501	5	-	19.2.1	 the whole of the Premises are given up to the Landlord free from any subsisting 	0	1	0	91774	28	34	19	0	2	0	0	0	0
+170	2	0	13	502	5	-	19.2.2	 all Principal Rent and value added tax payable on it due under this Lease up to 	0	1	0	91912	30	34	25	0	5	0	0	0	0
+26	3	32	12	503	4	-	19.3	 The Landlord may waive any of the pre-conditions set out in clause 19.2 at any t	0	1	0	92071	32	34	28	2	5	0	0	0	0
+26	4	34	12	504	4	-	19.4	 The Tenant will cancel any registration it has made in connection with this Leas	0	1	0	92239	34	34	19	0	5	0	0	0	0
+26	5	36	12	505	4	-	19.5	 Time will be of the essence for the purposes of this clause.	0	1	0	92381	36	34	12	0	1	0	0	0	0
+26	6	37	12	506	4	-	19.6	 If this Lease terminates in accordance with this clause 19 then promptly after t	0	1	0	92465	37	34	32	1	8	0	0	0	0
+0	20	2	11	508	3	-	20.	 LANDLORD'S OPTION TO DETERMINE	0	0	0	92866	2	35	5	5	5	0	0	0	0
+34	1	3	12	509	4	-	20.1	 The Landlord may determine this Lease by giving to the Tenant not less than 4 mo	0	1	0	92919	3	35	63	1	9	0	0	0	0
+34	2	7	12	510	4	-	20.2	 On the termination of the Term the Tenant will give up occupation of the whole o	0	1	0	93307	7	35	25	0	4	0	0	0	0
+34	3	9	12	511	4	-	20.3	 Time will be of the essence for the purposes of this clause.	0	1	0	93479	9	35	12	0	1	0	0	0	0
+34	4	10	12	512	4	-	20.4	 If this Lease terminates in accordance with this clause 20 then promptly after t	0	1	0	93563	10	35	62	1	8	0	0	0	0
+327	0	0	70	513	2	SCHEDULE	1	ADDITIONAL SERVICE COSTS	0	0	0	93946	0	36	3	3	3	10	0	0	0
+324	1	2	61	514	3	-	1.	 The costs, where reasonably necessary, of inspecting, altering, renewing or repl	0	1	0	94000	2	36	14	0	3	0	0	0	0
+324	2	4	61	515	3	-	2.	 The costs of decorating the Communal Areas and the exterior of the Building as o	0	1	0	94125	4	36	44	0	5	0	0	0	0
+324	3	7	61	516	3	-	3.	 The costs of providing security for the Building including security guards, rece	0	1	0	94430	7	36	45	0	3	0	0	0	0
+324	4	11	61	517	3	-	4.	 The costs of operating inspecting servicing overhauling repairing maintaining cl	0	1	0	94784	11	36	123	0	8	0	0	0	0
+324	5	19	61	518	3	-	5.	 The costs of disposal of refuse from the Building including its collection and c	0	1	0	95582	19	36	26	0	2	0	0	0	0
+324	6	21	61	519	3	-	6.	 Paying outgoings which are charged in respect of the Building as a whole.	0	1	0	95770	21	36	13	0	2	0	0	0	0
+324	7	22	61	520	3	-	7.	 The costs of complying with legislation and the recommendations and requirements	0	1	0	95865	22	36	37	0	3	0	0	0	0
+324	8	25	61	521	3	-	8.	 Paying for utilities, including standing charges and meter rents, used in provid	0	1	0	96149	25	36	28	0	5	0	0	0	0
+324	9	28	61	522	3	-	9.	 The costs of providing and replacing carpeting or other floor coverings and all 	0	1	0	96370	28	36	21	0	3	0	0	0	0
+324	10	30	61	523	3	-	10.	 The costs of employing staff or contractors for the provision of the Services in	0	1	0	96527	30	36	30	0	2	0	0	0	0
+324	11	33	61	524	3	-	11.	 The costs of maintaining, cleaning, repairing, decorating and where necessary al	0	1	0	96784	33	36	55	0	6	0	0	0	0
+324	12	37	61	525	3	-	12.	 The costs of abating any nuisance to the Building or removing any obstruction of	0	1	0	97191	37	36	17	0	4	0	0	0	0
+324	13	39	61	526	3	-	13.	 The costs of providing and operating any other amenities which the Landlord (act	0	1	0	97314	39	36	21	0	3	0	0	0	0
+324	14	0	61	527	3	-	14.	 Interest, commission, banking charges and fees in respect of any moneys borrowed	0	1	0	97493	0	37	21	0	2	0	0	0	0
+324	15	2	61	528	3	-	15.	 The reasonable costs of implementing any of the recommendations in the assessor'	0	1	0	97645	2	37	52	1	2	0	0	0	0
+324	16	6	61	529	3	-	16.	 The Carbon Costs attributable to the amount of energy used in the Communal Areas	0	1	0	98027	6	37	20	0	6	0	0	0	0
+327	0	0	70	533	2	ELease	-	end of file	0	0	0	98417	5	38	3	0	0	0	0	0	0
+

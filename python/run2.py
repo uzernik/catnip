@@ -1,0 +1,173 @@
+from ctypes import *
+import sys
+import os
+import getopt
+import mysql.connector
+## call: python ~/dealthing/mytcstuff/python/run2.py -d 420 -2 "../.." -3 "../votingstuff/words_file_for_bigrams" -4 "media" -P mysql -N dealthing -U root -W imaof333
+
+def update_queries(doc_id,missing_pages,mycursor,mydb):
+    query_aws="update deals_alma_missing_aws_pages set aws_word_no = (case page \n "
+    query_gcs = "update deals_alma_missing_aws_pages set gcs_word_no = (case page \n "
+    query_seriousness = "update deals_alma_missing_aws_pages set gcs_word_no = (case page \n "
+    for page in missing_pages:
+        query_aws += "when {page} then {aws}\n".format(page=page[1], aws=page[2])
+        query_gcs += "when {page} then {gcs}\n".format(page=page[1], gcs=page[3])
+        query_seriousness += "when {page} then {seriousness}\n".format(page=page[1], seriousness=page[4])
+    query_aws += "end)\n where doc_id={}".format(doc_id)
+    query_gcs += "end)\n where doc_id={}".format(doc_id)
+    query_seriousness += "end)\n where doc_id={}".format(doc_id)
+    try:
+        mycursor.execute(query_aws)
+        mydb.commit()
+    except mysql.connector.Error as error:
+        print("Failed to insert records into table deals_alma_missing_aws_pages: {}".format(error))
+    try:
+        mycursor.execute(query_gcs)
+        mydb.commit()
+    except mysql.connector.Error as error:
+        print("Failed to insert records into table deals_alma_missing_aws_pages: {}".format(error))
+    try:
+        mycursor.execute(query_seriousness)
+        mydb.commit()
+        print("\t", mycursor.rowcount, "were updated")
+    except mysql.connector.Error as error:
+        print("Failed to insert records into table deals_alma_missing_aws_pages: {}".format(error))
+    mycursor.close()
+
+
+def insert_query(doc_id, missing_pages, mycursor,mydb):
+    delete_query = "delete from deals_alma_missing_aws_pages where doc_id={}".format(doc_id)
+    try:
+        mycursor.execute(delete_query)
+        mydb.commit()
+        print(mycursor.rowcount, "record(s) were deleted")
+    except mysql.connector.Error as error:
+        print("Failed to delete records from the table deals_alma_missing_aws_pages: {}".format(error))
+    insert_query= "insert into deals_alma_missing_aws_pages(doc_id,page,aws_word_no,gcs_word_no,seriousness) values (%s,%s,%s,%s,%s)"
+    try:
+        mycursor.executemany(insert_query, missing_pages)
+        mydb.commit()
+        print(mycursor.rowcount, "were inserted.")
+    except mysql.connector.Error as error:
+        print("Failed to insert records into table deals_alma_missing_aws_pages: {}".format(error))
+    mycursor.close()
+
+
+def cal_seriousness(aws_tokens,gcs_tokens):
+    return (abs(gcs_tokens-aws_tokens))/(gcs_tokens+aws_tokens)
+
+
+def aws_missing_pages(db_ip,db_user,db_pwd,db_name,doc_id):
+    mydb = mysql.connector.connect(
+        host=db_ip,
+        user=db_user,
+        password=db_pwd,
+        database=db_name
+    )
+
+    mycursor = mydb.cursor()
+
+    mycursor.execute(
+        "SELECT page,source_program,count(id) from deals_alma_non_aligned_token where doc_id={doc} group by page,source_program order by page".format(
+            doc=doc_id))
+
+    myresult = mycursor.fetchall()
+    it = iter(myresult)
+    missing_pages= []
+    for x in it:
+        row1 = x
+        if row1[1] == "GCS":
+            page_num= row1[0]
+            gcs_tokens= row1[2]
+            seriousness = cal_seriousness(0, gcs_tokens)
+            missing_pages.append((doc_id, page_num,0,gcs_tokens,seriousness))
+            continue
+        try:
+            row2 = next(it)
+            if row2[1] == "AWS":
+                print(
+                    "\tproblem with page number {page}, no gcs tokens were created\n\taws tokens: {aws_tokens}".format(
+                        page=row1[0], aws_tokens=row1[2]))
+                row1 = row2
+                try:
+                    row2 = next(it)
+                except StopIteration:
+                    break
+            page_num=row1[0]
+            aws_tokens= row1[2]
+            gcs_tokens= row2[2]
+            seriousness= cal_seriousness(aws_tokens, gcs_tokens)
+            if seriousness >= 0.1:
+                missing_pages.append((doc_id, page_num, aws_tokens, gcs_tokens, seriousness))
+        except StopIteration:
+            break
+    insert_query(doc_id, missing_pages, mycursor, mydb)
+
+
+def usage():
+    print('Incorect number of argument\n')
+    print ('Usage: '+sys.argv[0]+' -d <doc_id> -2 <program_path> -3 <dictionary_path> -4 <media_path> -P <db_ip> -N <db_name> -U <db_user> -W <db_pwd>')
+
+
+#program input: -d doc_id -2 program_path -3 dictionary_path -4 media_path -P db_ip -N db_name -U db_user -W db_pwd
+def main():
+    global dictionary_path
+    try:
+        optlist, args = getopt.getopt(sys.argv[1:], "d:2:3:4:P:N:U:W:")
+    except getopt.GetoptError as err:
+        # print help information and exit:
+        print(err) 
+        usage()
+        sys.exit(2)
+    if (len(optlist)<8):
+        usage()
+        sys.exit(2)
+    for opt, arg in optlist:
+        if(opt=='-d'):
+            doc_id=arg
+        elif(opt=='-2'):
+            program_path= arg
+        elif(opt=='-3'):
+            dictionary_path = arg
+        elif(opt=='-4'):
+            media_path= arg
+        elif(opt=='-P'):
+            db_ip= arg
+        elif(opt=='-N'):
+            db_name= arg
+        elif(opt=='-U'):
+            db_user= arg
+        elif(opt=='-W'):
+            db_pwd= arg
+
+    #process tokens from google
+    print("1. Creating gcs's tokens")
+    bin_path= program_path + "/dealthing/mytcstuff/bin"
+    gcs_path= bin_path + "/tokens_GCS4"
+    GCS_cmd = gcs_path + " -d " + doc_id + " -2 "+media_path+" -3 "+bin_path+"/gcs_editor -4 "+db_ip+" -5 "+db_name+" -6 "+db_user+" -7 "+db_pwd
+    '''
+    print("1.1. Created gcs's tokens")    
+    ret_val= os.system(GCS_cmd)
+    print("1.2. Createded gcs's tokens")    
+    if(ret_val==256):
+        sys.exit()
+    '''
+    #process tokens from amazon
+    print("2. Creating aws's tokens")
+    aws_path= bin_path + "/tokens_AWS2"
+    AWS_cmd= aws_path+" -d "+doc_id+" -2 "+media_path+" -3 "+db_ip+" -4 "+db_name+" -5 "+db_user+" -6 "+db_pwd
+    print("  2.0 AWS_cmd="+AWS_cmd)
+    ret_val= os.system(AWS_cmd)
+    print(" 2.1 Created aws's tokens")
+    if(ret_val==256):
+        sys.exit()
+    #print("3. Comparing aws's and gcs's number of tokens")
+    #aws_missing_pages(db_ip, db_user, db_pwd, db_name, doc_id)
+
+    print("3.  aligning")
+    alignment_cmd= bin_path+"/alignment3 "+"-d "+doc_id+" -2 "+dictionary_path+" -3 "+db_ip+" -4 "+db_name+" -5 "+db_user+" -6 "+db_pwd
+    print("  3.1  ALING CMD="+alignment_cmd)
+    os.system(alignment_cmd)
+
+if __name__ == "__main__":
+    main() 

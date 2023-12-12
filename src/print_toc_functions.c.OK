@@ -1,0 +1,139 @@
+#include <string.h>
+#include <time.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <unistd.h>
+#include <mysql.h>
+#include <stdlib.h>	/* for bsearch() */
+#include "entity_functions.h"
+#include "my_import_functions.h"
+#include "align_functions.h"
+#include "print_toc_functions.h"
+#include "create_toc.h"
+
+int wrap_LD(char *str1, char *str2); // from levenshtein_functions.c
+
+
+struct Pair_Struct {
+  int ii;
+  int jj;
+  int same_page; // how many TOC items on this page
+} pair_array[MAX_TOC];
+int pair_no;
+
+// we don't look at long headers for toc-toc
+#define legit_header_length 40
+char *normalize(char *text) {
+  int ii;
+  int jj;
+  static char bext[500];
+  if (text) {
+    for (jj = 0, ii = 0; ii < strlen(text) || ii < legit_header_length+1; ii++) {
+      if (isalnum(text[ii])) {
+	bext[jj++] = tolower(text[ii]);
+      }
+    }
+  } else {
+    jj = 0;
+  }
+  bext[jj] = '\0';
+  return strdup(bext);
+} // normalize()
+
+char *case_normalize(char *text) { // case sensitive
+  int ii;
+  int jj;
+  static char bext[500];
+  if (text) {
+    for (jj = 0, ii = 0; ii < strlen(text) || ii < legit_header_length+1; ii++) {
+      if (isalnum(text[ii])) {
+	bext[jj++] = text[ii];
+      }
+    }
+  } else {
+    jj = 0;
+  }
+  bext[jj] = '\0';
+  return strdup(bext);
+} //case_normalize()
+
+int find_first_good_pair() {
+  int kk;
+
+  for (kk = 0; kk < pair_no; kk++) {
+    int nn;
+    pair_array[kk].same_page = 0;
+
+    for (nn = 0; nn < pair_no; nn++) {
+      if (toc_array[pair_array[kk].ii].page_no == toc_array[pair_array[nn].ii].page_no) {
+	pair_array[kk].same_page++;
+      }
+    }
+
+    fprintf(stderr,"   GGGGG:kk=%2d: ii=%d: ppii=%2d:%2d: ppjj=%3d:%3d:  ij=:%2d:%2d: same_page=%2d: mono=%2d:   :%s:%s: \n" 
+	    , kk
+	    , pair_array[kk].ii, toc_array[pair_array[kk].ii].page_no, toc_array[pair_array[kk].ii].pid
+	    , toc_array[pair_array[kk].jj].page_no, toc_array[pair_array[kk].jj].pid
+	    , pair_array[kk].ii, pair_array[kk].jj,      pair_array[kk].same_page, 0,       toc_array[pair_array[kk].ii].header,toc_array[pair_array[kk].jj].header);
+  }
+
+  int ret = -1;
+  for (kk = 0; kk < pair_no; kk++) {
+    if (pair_array[kk].same_page > 5) {
+      ret = kk;
+      break;
+    }
+  }
+  return ret;
+}
+
+int create_toc_pairs() {
+  int ii, jj;
+  int kk = 0;
+  for (ii = 0; ii < toc_no; ii++) {
+    if (strlen(toc_array[ii].norm_header) < legit_header_length && strlen(toc_array[ii].norm_header) > 2) {
+      //fprintf(stderr,"HH:%2d:%2d: pp=%3d:%2d: tit=%10s:  sec=%6s: hd=%30s:  nh=%30s:\n",ii, ii1,toc_array[ii].pid, toc_array[ii].page_no, toc_array[ii].title, toc_array[ii].section, toc_array[ii].header, toc_array[ii].norm_header);
+      int min_total_dist = 1000;
+      int min_reg_dist = -1;
+      int min_dist_jj = -1;      
+      for (jj = ii+1; jj < toc_no; jj++) {
+	if (strlen(toc_array[jj].norm_header) < legit_header_length  && strlen(toc_array[jj].norm_header) > 2) {	
+	  int reg_dist = wrap_LD(toc_array[ii].norm_header,toc_array[jj].norm_header);
+	  int case_dist = wrap_LD(toc_array[ii].case_norm_header,toc_array[jj].case_norm_header);	  
+	  int total_dist = reg_dist + case_dist;
+	  if (total_dist < min_total_dist) {
+	    min_total_dist = total_dist;
+	    min_dist_jj = jj;
+	    min_reg_dist = reg_dist;	    
+	  }
+	}
+      }
+      if (min_reg_dist < 3) {
+	if (1) fprintf(stderr,"   GGGGG:kk=%2d: ppii=%2d:%2d: ppjj=%3d:%3d:  ij=:%2d:%2d: D=%2d:%2d:   :%s:%s: \n"
+		       , kk
+		       , toc_array[ii].page_no, toc_array[ii].pid, toc_array[min_dist_jj].page_no, toc_array[min_dist_jj].pid
+		       , ii, min_dist_jj,       min_total_dist, min_reg_dist,       toc_array[ii].header,toc_array[min_dist_jj].header);
+	pair_array[kk].ii = ii;
+	pair_array[kk].jj = min_dist_jj;	
+	pair_no = kk++;
+      }
+    }
+  }      
+  return 0;
+}
+
+
+int normalize_headers() {
+  int ii;
+  for (ii = 0; ii < toc_no; ii++) {
+    toc_array[ii].norm_header = normalize(toc_array[ii].header);
+    toc_array[ii].case_norm_header = case_normalize(toc_array[ii].header);    
+  }
+  return 0;
+}
+
+
+int align_by_toc_toc(int item_no) {
+  return 0;
+}

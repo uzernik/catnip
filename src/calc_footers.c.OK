@@ -1,0 +1,394 @@
+#include <math.h>
+#include <mysql.h>
+#include <ctype.h>
+#include <string.h>
+#include <time.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <unistd.h>
+#include <mysql.h>
+#include <stdlib.h>	/* for bsearch() */
+#include <calc_page_params.h>
+
+
+#define BOTTOM_LINES 8
+
+int wrap_LD(char *line_buff1, char *line_buff2); 
+/*************************************  FOOTER *******************************************/
+/* this module deals with footer identification */
+#define MAX_DIFF (MAX_PAGE*MAX_PAGE)
+//int diff_footer_matrix[MAX_PAGE][MAX_PAGE];
+struct Diff_Triple {
+  int ll, kk; // first block
+  int ll_page, kk_page; // the page
+  int diff;
+} diff_footer_list[2*BOTTOM_LINES][MAX_DIFF];
+int diff_footer_no[2*BOTTOM_LINES];
+
+int ppp_diff_cmp(const void *a, const void *b) {
+  int x1 = (((struct Diff_Triple *)a)->diff);
+  int x2 = (((struct Diff_Triple *)b)->diff);
+  return(x1-x2);
+}
+
+int sort_diff_footer_pairs(int ll) {
+  qsort((void *)&diff_footer_list[ll][0], diff_footer_no[ll],  sizeof(struct Diff_Triple), ppp_diff_cmp);
+  return 0;
+}
+
+
+
+// assuming page is scanned vertically
+#define THRESH_ALL 100
+#define DIFF_FOOTER_THRESHOLD THRESH_ALL
+#define ADD_FOOTER_THRESHOLD THRESH_ALL
+#define MERGE_FOOTER_THRESHOLD THRESH_ALL
+
+    /*
+		int LD = wrap_LD(line_buff_array[pp][ll].line_buff,line_buff_array[ppf][llf].line_buff);
+		//fprintf(stderr,"              OOOOOIIIII:%d:  :%s:-----:%s:\n",LD,line_buff_array[pp][ll].line_buff,line_buff_array[ppf][llf].line_buff);
+
+		int vspace = (line_buff_array[pp][ll+1].y1 - line_buff_array[pp][ll].y2)/100;
+		int vsize = (line_buff_array[pp][ll].y2 - line_buff_array[pp][ll].y1)/100;	      
+		double factor = (double)(line_buff_array[ppf][llf].line_len * line_buff_array[pp][ll].line_len) / (double)(LD * LD);
+
+
+		if (0 && debug) fprintf(stderr,"           LYY Match: mm=%d: LD=%d: pl=%d:%d: plf=%d:%d: y12=%d:%d: vsize=%d: vsp=%d: factor=%2.2f: tt=%s:%s: l12=%d:%d: r12=%d:%d: ifh=%d:\n"
+			  , mm++, LD, pp, ll, ppf, llf
+			  ,  line_buff_array[pp][ll].y1/100 , line_buff_array[pp][ll].y2/100
+			  , vsize, vspace, factor
+			  ,  line_buff_array[pp][ll].line_buff, line_buff_array[ppf][llf].line_buff
+			  , line_buff_array[pp][ll].line_len, line_buff_array[ppf][llf].line_len
+				     , line_buff_array[pp][ll].removed, line_buff_array[ppf][llf].removed, line_buff_array[pp][ll].is_footer_header);
+
+
+		if ((LD  * LD * LD_FACTOR) < line_buff_array[ppf][llf].line_len * line_buff_array[pp][ll].line_len) {
+
+    */
+
+// allow 4 for footer, 4 for headers
+
+int is_page_number_f(int ll, char *text) { // page 5, or -3- or 15 or IX or ii,  MUST BE FOR bottom lines ONLY
+  static char bext[5000];
+  int len = strlen(text);
+  char *found_page = strcasestr(text,"page");
+  int is_roman = 0;
+  int is_number = 0;
+  if (!found_page) {
+    int ii, jj;
+    for (ii = 0, jj = 0; ii < len; ii++) {
+      if (isalnum(text[ii]) != 0) {
+	bext[jj++];
+      } 
+    }
+    bext[jj++] = '\0';
+    if (jj < 4) {
+      is_roman = 1;
+      is_number = 1;
+      for (ii = 0; ii < jj; ii++) {
+	if (bext[ii] != 'i' && bext[ii] != 'I' && bext[ii] != 'v' && bext[ii] != 'V' && bext[ii] != 'x' && bext[ii] != 'X') {
+	  is_roman = 0;
+	}
+	if (isdigit(bext[ii]) == 0) {
+	  is_number = 0;
+	}
+      }
+    }
+  }
+  int ret = ((!found_page && is_number == 0 && is_roman == 0) || len > 8 || ll >=  BOTTOM_LINES) ? 0 : 1;
+  //fprintf(stderr,"JJJ: ret=%d: fp=%s: len=%d: isn=%d: ir=%d: t=%s:\n", ret, found_page, len,  is_number, is_roman, text);
+  return ret;
+} // is_page_number_f
+
+int is_exhibit_f(int ll, char *text) { // EXHIBIT on the TOP of the page is an exhibit
+  int ret = (ll < BOTTOM_LINES && strcasestr(text,"exhibit") != NULL);
+  return ret;
+}
+
+int create_diff_footer_array(int ll, int no_of_pages) {
+  diff_footer_no[ll] = 0;
+  int pp1;
+  for (pp1 = 1; pp1 <= no_of_pages; pp1++) {
+    int first_block_mm;
+    if (ll < BOTTOM_LINES) { // 0, 1, 2 are first second and third blocks
+      first_block_mm = page_properties_array[pp1].first_block_in_page + ll;  
+    } else { // 3, 4, 5 are last, second from last, third from last
+      first_block_mm = page_properties_array[pp1].last_block_in_page + 3 - ll;
+    }
+    int x1_mm = block_array[first_block_mm].my_x1;
+    int x2_mm = block_array[first_block_mm].my_x2;    
+    char *t_mm =  block_array[first_block_mm].textf;   
+    int first_word_mm = block_array[first_block_mm].first_word;
+    int last_word_mm = block_array[first_block_mm].last_word;    
+
+    char text_mm[5000];
+    text_mm[0] = '\0';
+    int ii;
+    for (ii = first_word_mm; ii <= last_word_mm; ii++) {
+      strcat(text_mm,word_array[ii].text);
+    }
+    int len_mm = strlen(text_mm);
+    int is_page_no_mm = is_page_number_f(ll, text_mm);
+    int is_exhibit_mm = is_exhibit_f(ll, text_mm);
+    int pp2;
+    fprintf(stderr,"PPP:%d: ll=%d: i12=%d: x12=%d:%d: :%s:%s: page_number=%d:\n"
+	    , pp1, ll,    first_block_mm+1,  x1_mm,x2_mm,  t_mm, text_mm, is_page_no_mm);    
+    for (pp2 = pp1+1; pp2 <= no_of_pages; pp2++) {
+      int first_block_kk;
+      if (ll < BOTTOM_LINE) { // 0, 1, 2 are first second and third blocks      
+	first_block_kk = page_properties_array[pp2].first_block_in_page +ll;
+      } else {
+	first_block_kk = page_properties_array[pp2].last_block_in_page + BOTTOM_LINE - ll;
+      }
+      int x1_kk = block_array[first_block_kk].my_x1;
+      int x2_kk = block_array[first_block_kk].my_x2;      
+      char *t_kk = block_array[first_block_kk].textf;
+      int first_word_kk = block_array[first_block_kk].first_word;
+      int last_word_kk = block_array[first_block_kk].last_word;  
+
+      char text_kk[5000];
+      text_kk[0] = '\0';
+      int ii;
+      for (ii = first_word_kk; ii <= last_word_kk; ii++) {
+	strcat(text_kk, word_array[ii].text);
+      }
+      int len_kk = strlen(text_kk);
+      int diff = abs(x1_kk - x1_mm) + abs(x2_kk - x2_mm); // the discrepancy -- not relative to the size
+      if (diff < DIFF_FOOTER_THRESHOLD) {
+	int LD = wrap_LD(text_kk, text_mm);
+	float ld_diff = (float)(LD * LD) / (float)(len_kk * len_mm);
+	int is_page_no_kk = is_page_number_f(ll, text_kk);
+	int is_exhibit_kk = is_exhibit_f(ll, text_kk);	
+	if (((is_page_no_kk && is_page_no_mm) || ld_diff < 0.5) && is_exhibit_kk == 0 && is_exhibit_mm == 0 && abs(pp1-pp2) < 5 ) {
+	  /* 
+	     1.  either strings are similar or it has a page number BOTTOM
+	     2.  don't allow EXHIBIT on page top
+	     3.  strings have to be LD-similar
+	     4.  pages must be in proximity (you can't have similar footers in far parts of the document)
+	  */
+	  fprintf(stderr,"   QQQ:%d:  ll=%d: i12=%d:  x12l=%d:%d:  x12k=%d:%d: :%s:%s: page_number=%d: diff=%d: ld=%d:%4.2f\n"
+		  , pp2, ll,     first_block_kk,    x1_mm,x2_mm,    x1_kk,x2_kk,  t_kk, text_kk, is_page_no_kk, diff, LD, ld_diff);          
+	  diff_footer_list[ll][diff_footer_no[ll]].diff = diff; 
+
+	  diff_footer_list[ll][diff_footer_no[ll]].ll = first_block_mm;
+	  diff_footer_list[ll][diff_footer_no[ll]].kk = first_block_kk;
+
+	  diff_footer_list[ll][diff_footer_no[ll]].ll_page = pp1;
+	  diff_footer_list[ll][diff_footer_no[ll]].kk_page = pp2;	
+
+	  diff_footer_no[ll]++;	
+	}
+      }
+    }
+  }
+  fprintf(stderr,"RRR:%d:\n",diff_footer_no[ll]);
+  return diff_footer_no[ll];
+} // create_diff_footer_array(int pp) 
+
+
+int print_diff_footer_list(int ll, int diff_footer_no[ll]) {
+  int ii;
+  for (ii = 0; ii < diff_footer_no[ll]; ii++) {
+    fprintf(stderr,"FOOTER: ii=%d: diff=%d: p12=%d:%d: lk=%d:%d:\n"
+	    , ii
+	    , diff_footer_list[ll][ii].diff
+	    , diff_footer_list[ll][ii].ll_page
+	    , diff_footer_list[ll][ii].kk_page
+	    , diff_footer_list[ll][ii].ll 
+	    , diff_footer_list[ll][ii].kk
+	    );
+  }
+  return 0;
+}
+
+
+
+struct Footer_Cluster { 
+  int footer_array[MAX_BLOCKS_IN_CLUSTER];
+  struct Footer_Item {int block; int page;} footer_item_array[MAX_BLOCKS_IN_CLUSTER];  
+  int footer_no;  // how many block AND items exist in the list
+} footer_cluster_array[2*BOTTOM_LINES][MAX_CLUSTERS];
+int footer_cluster_no[2*BOTTOM_LINES];
+int Real_footer_cluster_no[2*BOTTOM_LINES];
+
+
+int ppp_footer_item_cmp(const void *a, const void *b) {
+  int x1 = (((struct Footer_Item *)a)->block);
+  int x2 = (((struct Footer_Item *)b)->block);
+  return(x1-x2);
+}
+
+
+int found_item_in_footer_cluster(int ll, int cc, int block) {
+  int nn;
+  int found_in_cluster = 0;
+  for (nn = 0; found_in_cluster == 0 && nn < footer_cluster_array[ll][cc].footer_no; nn++) { // check all the items of the cluster
+    if (footer_cluster_array[ll][cc].footer_item_array[nn].block == block) {            
+      found_in_cluster = 1;
+    }
+  }
+  return found_in_cluster;
+}
+
+int footer_merge_clusters_J_into_I(int ll, int cI_in, int cJ_in) {
+  int cI = MIN(cI_in, cJ_in);
+  int cJ = MAX(cI_in, cJ_in);
+  {
+    int nII = footer_cluster_array[ll][cI].footer_no;
+    int nJJ;
+    for (nJJ = 0; nJJ < footer_cluster_array[ll][cJ].footer_no; nJJ++) {
+
+      footer_cluster_array[ll][cI].footer_item_array[nII].block = footer_cluster_array[ll][cJ].footer_item_array[nJJ].block;
+      footer_cluster_array[ll][cI].footer_item_array[nII].page = footer_cluster_array[ll][cJ].footer_item_array[nJJ].page;      
+
+      nII++;
+    }
+
+    footer_cluster_array[ll][cI].footer_no = nII;
+    footer_cluster_array[ll][cJ].footer_no = 0;
+  }
+  return cI;
+}
+
+
+int do_footer_clusters(int ll, int last_page_no) {
+  footer_cluster_no[ll] = 0;
+  Real_footer_cluster_no[ll] = 0;  
+
+  int ss; // the similarity item
+  int cc; // the cluster
+  int cI = -1;
+  int cJ = -1;
+
+  fprintf(stderr, "CLUSTERING  %d:\n", diff_footer_no[ll]);
+  for (ss = 0; ss < diff_footer_no[ll]; ss++) { 
+    //if (debug) fprintf(stderr, "**GO OVER SS=%d: CL_NO=%d:%d:\n", ss, footer_cluster_no[ll], Real_footer_cluster_no[ll]);
+    int found_in_clusters = 0;
+    cI = 0; cJ = 0;
+    int foundI = 0, foundJ = 0;
+    for (cc = 0; found_in_clusters < 2 && cc < footer_cluster_no[ll]; cc++) { // check if new sim is already in an EXISTING CLUSTER
+      if (foundI == 0) {
+	foundI = found_item_in_footer_cluster(ll, cc, diff_footer_list[ll][ss].ll);
+	if (foundI == 1) {
+	  cI = cc;
+	}
+      }
+      
+      if (foundJ == 0) {
+	foundJ = found_item_in_footer_cluster(ll, cc, diff_footer_list[ll][ss].kk);
+	if (foundJ == 1) {
+	  cJ = cc;
+	}
+      }
+      
+    } // for all clusters
+
+    //if (debug) fprintf(stderr,"       FOUND ss=%d: fIJ1=%d:%d: cIJ=%d:%d: sim=%d: CL_NO=%d:\n", ss, foundI, foundJ, cI, cJ, diff_footer_list[ll][ss].diff, footer_cluster_no[ll]);
+    int ii0 = diff_footer_list[ll][ss].ll;
+    int ii1 = diff_footer_list[ll][ss].kk;
+    int pp0 = diff_footer_list[ll][ss].ll_page;
+    int pp1 = diff_footer_list[ll][ss].kk_page;
+    int sim01 = diff_footer_list[ll][ss].diff;
+    if (foundI == 1 && foundJ == 0 && sim01 < ADD_FOOTER_THRESHOLD) {
+
+      footer_cluster_array[ll][cI].footer_item_array[footer_cluster_array[ll][cI].footer_no].block = ii1;
+      footer_cluster_array[ll][cI].footer_item_array[footer_cluster_array[ll][cI].footer_no].page = pp1;      
+      footer_cluster_array[ll][cI].footer_no++;
+
+      if (footer_cluster_array[ll][cI].footer_no >= MAX_BLOCKS_IN_CLUSTER-1) {
+	fprintf(stderr,"No of itemd exceeded %d:\n", MAX_BLOCKS_IN_CLUSTER);
+	exit(0);
+      }
+
+    } else if (foundJ == 1 && foundI == 0  && sim01 < ADD_FOOTER_THRESHOLD) {
+
+      footer_cluster_array[ll][cJ].footer_item_array[footer_cluster_array[ll][cJ].footer_no].block = ii0;
+      footer_cluster_array[ll][cJ].footer_item_array[footer_cluster_array[ll][cJ].footer_no].page = pp0;      
+      footer_cluster_array[ll][cJ].footer_no++;
+
+      if (footer_cluster_array[ll][cJ].footer_no >= MAX_BLOCKS_IN_CLUSTER-1) {
+	fprintf(stderr,"No of itemd exceeded %d:\n", MAX_BLOCKS_IN_CLUSTER);
+	exit(0);
+      }
+      
+    } else if (foundI == 1 && foundJ == 1
+	       && cI >= 0 && cJ >=0 && cI != cJ
+	       && diff_footer_list[ll][ss].diff < MERGE_FOOTER_THRESHOLD) { // merge clusters // any conditions on merge? what if each group is happy with 15 items?
+
+
+      footer_merge_clusters_J_into_I(ll, cI, cJ);
+      Real_footer_cluster_no[ll]--;
+
+    } else if (foundI == 0 && foundJ == 0 && sim01 < ADD_FOOTER_THRESHOLD) { // create new cluster with 2 items for this similarity
+      int cc_footer_no = 0;
+
+      footer_cluster_array[ll][footer_cluster_no[ll]].footer_item_array[cc_footer_no].block = ii0;
+      footer_cluster_array[ll][footer_cluster_no[ll]].footer_item_array[cc_footer_no].page = pp0;      
+      cc_footer_no++;
+	
+
+      footer_cluster_array[ll][footer_cluster_no[ll]].footer_item_array[cc_footer_no].block = ii1;
+      footer_cluster_array[ll][footer_cluster_no[ll]].footer_item_array[cc_footer_no].page = pp1;      
+      cc_footer_no++;
+	
+      footer_cluster_array[ll][footer_cluster_no[ll]].footer_no = cc_footer_no;
+	
+      if (footer_cluster_no[ll] >= MAX_CLUSTERS-1) {
+	fprintf(stderr,"No of cluster exceeded %d:\n", MAX_CLUSTERS);
+	exit(0);
+      }
+      footer_cluster_no[ll]++;
+      Real_footer_cluster_no[ll]++;      
+    }
+  } // SS
+  if (debug) fprintf(stderr, "FINISHED PAGE clusters :%d:\n", cc);
+
+  // sort the blocks by order
+  for (cc = 0; cc < footer_cluster_no[ll]; cc++) {
+    qsort((void *)&(footer_cluster_array[ll][cc].footer_item_array),  footer_cluster_array[ll][cc].footer_no, sizeof(struct Footer_Item), ppp_footer_item_cmp);
+  }
+  
+  return footer_cluster_no[ll];
+} // do_footer_clusters()
+
+int mark_and_print_footer_clusters(int ll) {
+  int cc;
+  fprintf(stderr, "PRINTING FOOTER CLUSTERS: block=%d: cc=%d:\n", ll, footer_cluster_no[ll]);
+  for (cc = 0; cc < footer_cluster_no[ll]; cc++) {
+    if (footer_cluster_array[ll][cc].footer_no > 0) {
+      fprintf(stderr, "      FOOTER CLUSTER:%d:%d:\n",cc, footer_cluster_array[ll][cc].footer_no);
+      int ii;
+      for (ii = 0; ii < footer_cluster_array[ll][cc].footer_no; ii++) {
+	int bk = footer_cluster_array[ll][cc].footer_item_array[ii].block;
+	int fw = block_array[bk].first_word;
+	int lw = block_array[bk].last_word;	
+
+	fprintf(stderr, "  :%d:%d:%d:-:%d:%d:", ii, footer_cluster_array[ll][cc].footer_item_array[ii].block, footer_cluster_array[ll][cc].footer_item_array[ii].page, fw, lw);
+	block_array[bk].is_header_footer = (ll < BOTTOM_LINES) ? 1 : 2;
+	
+      }
+      fprintf(stderr, "\n");
+    }    
+  }
+  return 0;
+}
+
+
+int create_footer_clusters(int last_page_no) {
+  int ll;
+  for (ll = 0; ll < 2 * BOTTOM_LINES; ll++) {
+    fprintf(stderr,"********************* DOING HEADER/FOOTER %d:\n",ll);
+    diff_footer_no[ll] = create_diff_footer_array(ll, last_page_no);
+    sort_diff_footer_pairs(ll);
+    //print_diff_footer_list(ll, diff_footer_no[ll]);  
+    int nn = do_footer_clusters(ll, last_page_no);
+    mark_and_print_footer_clusters(ll);
+  }
+  /*
+  decide_footer_clusters(last_page_no);    
+  */
+  return 0;
+}
+
+/*****************************************************************************/

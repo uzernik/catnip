@@ -1,0 +1,98 @@
+
+##
+##
+## UZ: 5/5/15: now created ../inter file to collect intermediate files (usually .c files)
+## ran the program fix_makefile to convert from Makefile_old to Makefile
+## !!! .c files that are source stay in ./src
+## !!! added else to ifeq clauses to cp .c to ./inter
+##
+
+
+TOP=  ../..
+
+## include $(TOP)/SysDefs.mk
+
+CXX = g++ -std=c++11 -g -Wall
+CC = gcc -g -Wall
+CFLAGS =
+LDFLAGS = -lmysqlclient
+PY_INCLUDE = /usr/include/python3.4
+
+## This flex can handle more than fricken 32000 states
+LEX = ~/flex/flex-2.5.37/flex
+LEX = /etc/flex
+LEX = ../../lib/flex ## UZ 05/07/15: we now pass flex binary via git
+
+FLEX = ~/Downloads/flex-2.5.39/flex
+LIBRARIES = -lm
+
+BIN     = ~/dealthing/dtcstuff/bin
+BUILD	= ~/dealthing/dtcstuff/build
+INTER	= ~/dealthing/dtcstuff/my_inter
+DJANGO_DLLS = ~/dealthing/webapp/dlls
+
+MYSQL_LIBS = -lmysqlclient
+
+INSTALL = cp -auv
+
+DSINCDIR = .
+DSINTER = ~/dealthing/dtcstuff/src
+INCLUDE_FLAGS = -I${MYSQL} -I${DSINCDIR} -I${DSINTER}
+
+SRC_PATTERN = ^*.o
+
+## check the architecture: 64 or 32 bit. 
+LBITS := $(shell getconf LONG_BIT)
+ifeq ($(LBITS),64)
+## FOR 64 BIT (Shahar)
+	SQL_flags = -I. -I/usr/include/mysql  -g -pipe -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -fno-strict-aliasing -fwrapv
+	SQL_libs = -rdynamic -L/usr/lib64/mysql -lmysqlclient -lz -lcrypt -lnsl -lm -L/usr/lib64 -lssl -lcrypto -ljansson 
+else
+## FOR 32 BIT (Uri, Amazon)
+	SQL_flags = -I.  -I/usr/include/mysql  -g -pipe -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m32 -D_GNU_SOURCE -D_FILE_OFFSET_BITS=32 -D_LARGEFILE_SOURCE -fno-strict-aliasing -fwrapv
+	SQL_libs = -rdynamic -L/usr/lib32/mysql -lmysqlclient -lz -lcrypt -lnsl -lm -L/usr/lib32 -lssl -lcrypto -ljson 
+endif
+
+PRE = \
+${BUILD}/flex_include \
+${BUILD}/flex_included
+
+#################  PROGRAM LIST ###############################
+ALL = \
+${BUILD}/clean_text \
+
+###############################################################
+
+all: build_pre install_pre build install
+
+build_pre: ${BUILD} ${BIN} ${INTER} ${DJANGO_DLLS} $(PRE)
+
+build: ${BUILD} ${BIN} ${INTER} ${DJANGO_DLLS} $(ALL)
+
+install: build
+	$(INSTALL) $(ALL) $(BIN)
+
+install_pre: build_pre
+	$(INSTALL) $(PRE) $(BIN)
+
+.c.o:
+	${CC} ${INCLUDE_FLAGS} -c -g -Wall $<
+
+${BUILD}:
+	mkdir -p ${BUILD}
+
+${BIN}:
+	mkdir -p ${BIN}
+
+${INTER}:
+	mkdir -p ${INTER}
+
+${DJANGO_DLLS}:
+	mkdir -p ${DJANGO_DLLS}
+
+############ START RULES ##############
+
+${BUILD}/clean_text: clean_text.c 
+	gcc -o ${BUILD}/clean_text clean_text.c 
+
+#######################################
