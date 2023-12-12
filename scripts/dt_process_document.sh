@@ -2,7 +2,7 @@
 ## CALLING: date; (bash ../scripts/dt_process_document.sh -Pmysql -Ndealthing -Uroot -Wimaof333 -D1 -M media -x ../../.. -O 'Comcast License Agreement' -c 'hsgatlin' -m 'comcast') >& ttt63; date
 
 ## doc_id is NOT an input;  it's calculated by set_doc_entry!!!
-## Input: (F) path to Media (O) name of PDF in webapp/Dropbox folder
+## Input: (c) Client (owner of contracts) (m) deal (group of contracts) (O) name of PDF in webapp/Dropbox folder
 ## Output: (1) in sql: deals_document entry; (2) in media folder: htmlfile, dsafile; (3) in sql: deals_toc_item, deals_token
 
 
