@@ -11,24 +11,16 @@ class ProcessType:
 
 #################### COPIED from Alma 12/12/23 #############
 # Set up AWS credentials and region
-aws_access_key = "AKIAVLARLSXQY3P7VN4P"   
+aws_access_key = "AKIAVLARLSXQY3P7VN4P"   ##"YOUR_ACCESS_KEY"
 aws_secret_key = "sejGnsHkWKs+JUhSDnRjQqjPQzMfxehhtEHp5nmO"
 aws_region = "us-west-2"
 #################
 
-
-
 class DocumentProcessor:
     jobId = ''
-    ##    textract = boto3.client('textract')
-    textract = boto3.client('textract',
-                            aws_access_key_id="AKIAVLARLSXQY3P7VN4P"   ,
-                            aws_secret_access_key="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",
-                            region_name="us-west-2"
-                            )
-
-    sqs = boto3.client('sqs')
-    sns = boto3.client('sns')
+    textract = boto3.client('textract', region_name='us-west-2') ##UZ
+    sqs = boto3.client('sqs', region_name='us-west-2') ##UZ
+    sns = boto3.client('sns', region_name='us-west-2') ##UZ
 
     roleArn = ''   
     bucket = ''
@@ -148,7 +140,10 @@ class DocumentProcessor:
       "Sid":"MyPolicy",
       "Effect":"Allow",
       "Principal" : {{"AWS" : "*"}},
-      "Action":"SQS:SendMessage",
+      "Action": [
+        "sqs:SendMessage",
+        "sqs:ReceiveMessage"
+        ],
       "Resource": "{}",
       "Condition":{{
         "ArnEquals":{{
@@ -164,6 +159,8 @@ class DocumentProcessor:
             Attributes = {
                 'Policy' : policy
             })
+        print("create queue")
+        print(response)
 
     def DeleteTopicandQueue(self):
         self.sqs.delete_queue(QueueUrl=self.sqsQueueUrl)
@@ -290,8 +287,8 @@ class DocumentProcessor:
 
 
 def main(arg1,arg2):
-    roleArn = 'arn:aws:iam::001668248035:role/TextractRole'   
-    bucket = 'dealsumm-ocr-files'
+    roleArn = 'arn:aws:iam::367256114657:role/textract_role'
+    bucket = 'dealsumm-ocr-files-test'
     in_file = arg1
     document = arg2+".pdf"
     json_out_doc = arg2+"_AWS.json"
@@ -306,16 +303,16 @@ def main(arg1,arg2):
     f = open(json_out_doc, 'w')    
     print(f'Inp3')
     sys.stdout = f
-    ##print(f'BEFORE DECLARE DP')
+    print(f'BEFORE DECLARE DP')
     analyzer=DocumentProcessor(roleArn, bucket,document)
-    ##print(f'BEFORE CREATE TOPIC')    
+    print(f'BEFORE CREATE TOPIC')    
     analyzer.CreateTopicandQueue()
     #Processtype.DETECT is the regulae detection OR ProcessType.ANALYSIS to get information about forms and tables
-    ##print(f'BEFORE PD')        
+    print(f'BEFORE PD')        
     analyzer.ProcessDocument(ProcessType.ANALYSIS)
-    ##print(f'BEFORE DEL TOPIC')            
+    print(f'BEFORE DEL TOPIC')            
     analyzer.DeleteTopicandQueue()
-    ##print(f'DONE MAIN')            
+    print(f'DONE MAIN')            
 
 if __name__ == "__main__":
     main(sys.argv[1],sys.argv[2]) 

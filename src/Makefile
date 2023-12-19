@@ -29,7 +29,7 @@ LIBRARIES = -lm
 BIN     = ../bin
 BUILD	= ../build
 INTER	= ../my_inter
-DJANGO_DLLS = ../../webapp/dlls
+DJANGO_DLLS = ../../webapp/dlls 
 
 MYSQL_LIBS = -lmysqlclient
 

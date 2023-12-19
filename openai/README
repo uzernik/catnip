@@ -1,0 +1,158 @@
+### the general scheme ###
+0.  start DealSumm DOCKER in order to open MYSQL (see dockerize USAGE)
+    cd ~/dealsumm/docker
+    docker-compose up -d
+    
+1. in terminal open Docker shell
+  docker ps (find name of most recent docker)
+  docker exec -it docker_app_1 bash
+
+2. process the PDF and find TOC
+   bash ../dtcstuff/scripts/dt_process_document.sh -Pmysql -Ndealthing -Uroot -Wimaof333 -D1 -M media -x ../../ -O 'Comcast License Agreement' -c hsgatlin -m comcast
+   WHERE:
+   1. hsgatlin is the CLIENT
+   2. comcast is the DEAL
+   3. Comcast License Agreement is the DOCUMENT
+   4. ASSUMED: the document is placed by the user in folder called webapp/Dropbox
+   5. OUT: the DSA document is placed in folder called webapp/media/hsgatlin/comcast/dsafile_00000488 where 488 is the resulting doc_id
+   
+3.  start my DOCKER (catnip)
+  BUILD: docker build -t catnip .
+  close port 5000 windows!
+  RUN:  docker run -p 5000:5000 -v ~/dealthing/webapp/media:/media -v ~/OpenAI:/OpenAI catnip
+  copy the token
+
+4  In Chrome, Jupyter, open http://localhost:5000/
+  paste the token
+
+5. Split the html file into many divs
+   In Jupyter paste the file:   split_html_to_segments.py
+   run the split divs = split_html_on_div_attributes(file_name)
+
+6. vectordb indexing.py
+   In Jupyter paste the file:   vectordb_indexing.py
+   ask "question"
+
+7.chat.py -- now there's context accumulated between the segments
+   In Jupyter paste the file:   vectordb_indexing.py
+   start Q&A
+
+8. Memory
+
+9. unified question
+
+
+##### Python Tutorial ####
+
+https://docs.python.org/3/tutorial/controlflow.html
+
+
+##### Docker Tutorial##############
+https://docker-curriculum.com/
+
+###### PUSHING INTO DOCKER
+##1. get the containers and find your container by the image name (catnip)
+docker ps (reply: 'bc4edba04ccd   catnip                                                               "jupyter lab --ip=0.…"   24 minutes ago   Up 24 minutes   0.0.0.0:5000->5000/tcp, :::5000->5000/tcp   gifted_tu') 
+##2. get the image_id associated with this container
+docker inspect bc4edba04ccd --format='{{.Image}}' ('sha256:8e3459b517c76183a8c13393c8084838f8397c8b2b35fcb9cf714e2934256e83')
+###3. tag the image
+docker tag sha256:8e3459b517c76183a8c13393c8084838f8397c8b2b35fcb9cf714e2934256e83 uzernik/catnip:1.0  
+###4. confirm image is tagged
+docker images ('uzernik/catnip  1.0    8e3459b517c7   2 days ago     1.94GB)
+###5. push to docker
+docker push uzernik/catnip:1.0
+###6. confirm
+login to hub.docker.com w my gmail via google
+
+
+##### Docker container ####
+1.  directory OpenAI
+2.  Dockerfile
+3.  YAML file docker-compose.yml
+4.  BUILD: docker build -t catnip .
+4. "docker images" / docker rmi <name>
+5.  RUN:  docker run -p 5000:5000 -v ~/dealthing/webapp/media:/media -v ~/OpenAI:/OpenAI catnip
+6.  SCREEN: http://localhost:5000/
+5.  docker ps or docker ps -a
+6   docker logs
+7   docker log <id>
+8.  docker inspect hoi_vavoi  #show volumes, config
+9.  docker stop abcdef123456
+################# Bash session attached to a running docker container###################
+10. docker ps ## find names of running containers
+11. docker exec -it exciting_fermi bash
+
+
+###### Docker-compose.yaml example #############
+4.  create YAML file docker-compose.yml
+5.  content:
+--------------
+version: '3'
+
+services:
+  llm-langchain:
+    image: llm-langchain-learning
+    volumes:
+      - /home/roee:/app
+    command: bash
+--------------
+
+
+
+##### secret API key ##########
+openai.api_key='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'
+
+############ LangChain / Openai / deeplea
+
+rning.ai tutorial#############
+https://learn.deeplearning.ai/chatgpt-prompt-eng/lesson/2/guidelines
+https://learn.deeplearning.ai/langchain/lesson/1/introduction
+## LangChain documentation
+https://docs.langchain.com/docs/components/indexing/document-loaders
+## high level classs
+https://www.deeplearning.ai/short-courses/langchain-for-llm-application-development/
+
+
+################JUPYTER######################
+http://localhost:5000
+jupyter nbconvert --to script my_sess.ipynb ## from JUP to PYTHON
+
+############ OCR ########################
+from non-Docker: (bc I can't find Documents from Docker)
+
+python ~/dealthing/votingstuff/textract/textract_new.py '/home/roee/Documents/Carr-Barstow/Ali Hendi//Ali Hendi Guaranty' Hendy
+
+############ DOC PROCESSING, EXTRACT, ETC  ########################
+from Docker:
+
+bash ../../dealthing/dtcstuff/scripts/dt_new_extract_ocr.sh ../../ 30 mysql dealthing root imaof333 0 /root/dealthing/webapp/media 65f34f1a-dd4b-4058-ad01-0944a65973c9
+
+python ~/dealthing/votingstuff/python/run2.py -d 420 -2 "../.." -3 "../votingstuff/words_file_for_bigrams" -4 "media" -P mysql -N dealthing -U root -W imaof333
+
+date; (bash ../../dealthing/dtcstuff/scripts/dt_new_ocr.sh -d 420 -Pmysql  -Ndealthing -Uroot -Wimaof333 -D1      -M media -x ../../)
+
+
+############### AWS CLI #######################
+AWS CLI:
+view files in S3 bucket:
+ aws s3 ls s3://dealsumm-ocr-files
+
+script to view all S3 files:
+ bucket_list=$(aws s3api list-buckets --query "Buckets[].Name" --output text)
+
+# Iterate over each bucket and list its contents
+for bucket_name in $bucket_list; do
+    echo "Bucket: $bucket_name"
+    aws s3 ls s3://$bucket_name --recursive --human-readable --summarize
+    echo "-----------------------"
+done
+
+####################### python tricks ##############
+
+---
+import os
+os.system("python3 restart_QnA.py  --html_file '' ")  ## execute a python file
+
+---
+print(os.getcwd()) ## PWD
+%ls -lt  ## in python IN JUPYTER

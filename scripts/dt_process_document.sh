@@ -1,4 +1,5 @@
 #!/bin/bash
+TEST=1
 ## CALLING: date; (bash ../scripts/dt_process_document.sh -Pmysql -Ndealthing -Uroot -Wimaof333 -D1 -M media -x ../../.. -O 'Comcast License Agreement' -c 'hsgatlin' -m 'comcast') >& ttt63; date
 
 ## doc_id is NOT an input;  it's calculated by set_doc_entry!!!
@@ -79,8 +80,7 @@ done
 
 shift $((OPTIND-1))
 
-echo "pim=$path_in_media: opdf=$origPDF: med=$media: dbn=$db_Name: "
-
+echo "pim=$path_in_media: opdf=$origPDF: med=$media: dbn=$db_Name: client=${client}: deal=${deal}: dtp={$DT_path}:"
 
 ##if  [ -z "${origPDF}" ] || [ -z "${path_in_media}" ] || [ -z "${media}" ] || [ -z "${DT_path}" ] || [ -z "${db_IP}" ] || [ -z "${db_Name}" ] || [ -z "${db_User}" ] || [ -z "${db_Pwd}" ]  ; then
 if  [ -z "${origPDF}" ] || [ -z "${client}" ] || [ -z "${deal}" ] || [ -z "${media}" ]  ; then    
@@ -98,8 +98,18 @@ timestamp() {
 
   Lexicons=$DT_path/dealthing/lexicons
   DT_tmp=$DT_path/dealthing/mytcstuff/tmp
-  DT_bin=$DT_path/dealthing/mytcstuff/bin
-  DT_python=$DT_path/dealthing/mytcstuff/python  
+  if [ TEST = 1 ]; then
+      DT_bin=../bin
+  else
+      DT_bin=$DT_path/dealthing/mytcstuff/bin
+  fi
+  DT_bin=../bin  
+  echo "TEST=$TEST: DT_BIN=$DT_bin"
+  
+  DT_python=$DT_path/dealthing/mytcstuff/python
+  DT_python=../python
+  echo "TEST=$TEST: DT_PYTHON=$DT_python"
+  
   ##DT_voting=../votingstuff  ##UZ
   DT_src=$DT_path/dealthing/mytcstuff/src
   DT_toc=$DT_path/dealthing/mytcstuff/tmp/Toc
@@ -130,27 +140,29 @@ timestamp() {
 
   path_in_media="$clean_client"/"$clean_deal"
   echo "PATH_IN_MEDIA=$path_in_media"
+  mkdir -p $media
   mkdir -p $media/$clean_client
   mkdir -p $media/$clean_client/$clean_deal #$path_in_media
 
   ########### OCR ###################
   textract_output_json=media/$path_in_media/${clean_pdf}_AWS.json
 
-  if [ -f "Dropbox/$origPDF" ]; then
+  Dropbox='.'
+  if [ -f "$Dropbox/$origPDF" ]; then
 
       # Check if the file exists and has more than 100 bytes
       if [ -f "$textract_output_json" ] && [ $(stat -c%s "$textract_output_json") -gt 100 ]; then
 	  no_of_pages=`$DT_bin/get_no_of_pages_from_json < $textract_output_json`      
 	  printf "\n\nOUTPUT file $textract_output_json ALREADY exists and has $no_of_pages pages BYPASSING OCR\n"
-	  printf "\n\n1.  NOT CALLING: (python $DT_python/textract/textract_new.py Dropbox/$origPDF $path_in_media/$clean_pdf)\n"      
+	  printf "\n\n1.  NOT CALLING: (python $DT_python/textract/textract_test.py $Dropbox/$origPDF $path_in_media/$clean_pdf)\n"      
       else
 	  printf "\n\nFile $textract_output_json does not exist or is less than 100 bytes NOW DOING OCR\n"
-	  printf "\n\n1.  CALLING: (python $DT_python/textract_new.py Dropbox/$origPDF $path_in_media/$clean_pdf)\n"
-	  python $DT_python/textract_new.py   "Dropbox/$origPDF" "media/$path_in_media/$clean_pdf"
+	  printf "\n\n1.  CALLING: (python $DT_python/textract_test.py /Dropbox/$origPDF $path_in_media/$clean_pdf)\n"
+	  python $DT_python/textract_test.py   "/Dropbox/$origPDF" "media/$path_in_media/$clean_pdf"
 	  date
       fi
   else
-      printf "\n\nINPUT file:Dropbox/$origPDF: does not exist  ABORTING!!\n"
+      printf "\n\nINPUT file:$Dropbox/$origPDF: does not exist  ABORTING!!\n"
       exit
   fi
   
@@ -325,20 +337,3 @@ if [ $is_form = 1 ]; then
     date; python $DT_path/dealthing/webapp/deals/formdetect/form_detect.py -d $doc_id  -P$db_IP -N $db_Name -U $db_User -W $db_Pwd -F $json_file >& $DT_logs/www30; date
 fi
 
-
-if [ 0 = 0 ]; then
-    printf "\n\n14. CALLING: REMOVE TEMP FILES: $DT_tmp/aaa*.$doc_id \n"
-    ls -lt $DT_tmp/aaa*.$doc_id  ### show the files before remove
-    for pathname in $DT_tmp/aaa*.$doc_id; do  ### copy them into aaa*
-	filename=$(basename "$pathname")  ## lose the path
-	root="${filename%.*}"  ## lose the extension
-	echo "ROOT=$root"
-	cp ${pathname} ${DT_tmp}/${root}
-    done
-
-    rm $DT_tmp/aaa*.$doc_id  ### remove the aaaN.$doc_id files
-    ls -lt $DT_tmp/aaa* ### show the aaaN files
-fi
-
-
-printf "\n\n16.  DONE\n"

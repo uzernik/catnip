@@ -1,0 +1,1 @@
+  BUILD: docker build --no-cache --progress=plain -t catnip .
